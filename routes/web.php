@@ -22,8 +22,8 @@ Auth::routes();
 
 
 Route::get('/pegawai', 'PegawaiController@index')->name('pegawai');
-Route::get('/pegawai/tambah', 'TambahPegawaiController@index')->name('tambah_pegawai');
-Route::post('pegawai/simpan', 'TambahPegawaiController@simpan')->name('simpan_pegawai');
+Route::get('/pegawai/tambah', 'PegawaiController@tambah')->name('tambah_pegawai');
+Route::post('pegawai/simpan', 'PegawaiController@simpan')->name('simpan_pegawai');
 Route::delete('pegawai/{id}', 'PegawaiController@delete');
 Route::get('pegawai/{id}/edit', 'PegawaiController@edit')->name('edit_pegawai');
 Route::patch('pegawai/{id}', 'PegawaiController@update')->name('update_pegawai');
