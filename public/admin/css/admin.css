@@ -1,10 +1,18 @@
 .nav-link i {
-    font-size: 20px;
+    font-size: 30px;
     padding-left: 15px;
 }
 
-
-
 .sidebar-heading {
     font-size: 12px;
+}
+
+.sidebar {
+    background-color: rgb(7, 7, 126);
+}
+
+.sidebar span {
+    font-size: 30px;
+    color: white;
+    font-style: bold;
 }
