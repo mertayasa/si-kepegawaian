@@ -55,6 +55,9 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Pegawai</h6>
                         </div>
                         <div class="card-body">
+                            <a href="{{ route ('tambah_pegawai') }}" class="btn btn-icon icon-left btn-primary"><i
+                                class="far fa-edit"></i>  Tambah Pegawai</a>
+                            <br><br>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>

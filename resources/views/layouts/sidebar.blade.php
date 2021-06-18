@@ -12,7 +12,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route ('dashboard') }}">
             <i class="fas fa-tachometer-alt"></i>
             <span> Dashboard</span></a>
     </li>
@@ -26,21 +26,12 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-table"></i>
-            <span>Data Pegawai
-                <small><i class="fas fa-chevron-right"></i></small>
-            </span>
 
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-light py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Kelola Data Pegawai</h6>
-                <a class="collapse-item" href={{ route ('tambah_pegawai') }}>Tambah Pegawai</a>
-                <a class="collapse-item" href={{ route ('pegawai') }}>Data Pegawai</a>
-            </div>
-        </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route ('pegawai') }}">
+            <i class="fas fa-table"></i>
+            <span>Data Pegawai</span></a>
     </li>
 
     <li class="nav-item">

@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/pegawai', 'PegawaiController@index')->name('pegawai');
 Route::get('/pegawai/tambah', 'PegawaiController@tambah')->name('tambah_pegawai');
 Route::post('pegawai/simpan', 'PegawaiController@simpan')->name('simpan_pegawai');
