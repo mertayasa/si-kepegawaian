@@ -20,6 +20,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-route::get('/coba', 'CobaController@index')->name('coba');
+Route::get('/pegawai', 'PegawaiController@index')->name('pegawai');
+Route::get('/pegawai/tambah', 'TambahPegawaiController@index')->name('tambah_pegawai');
+Route::post('pegawai/simpan', 'TambahPegawaiController@simpan')->name('simpan_pegawai');
+Route::delete('pegawai/{id}', 'PegawaiController@delete');
+Route::get('pegawai/{id}/edit', 'PegawaiController@edit')->name('edit_pegawai');
+Route::patch('pegawai/{id}', 'PegawaiController@update')->name('update_pegawai');
+
+
+
