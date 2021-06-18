@@ -1,0 +1,55 @@
+   .card {
+       background: #fbfbfb;
+       border-radius: 8px;
+       box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.65);
+       height: 450px;
+       margin: 6rem auto 8.1rem auto;
+       width: 500px;
+   }
+
+   .card-content {
+       padding: 10px 20px;
+   }
+
+   .card-title {
+       font-family: "Raleway Thin", sans-serif;
+       letter-spacing: 2px;
+       padding-bottom: 23px;
+       padding-top: 13px;
+       text-align: center;
+   }
+
+   .underline-title {
+       background-color: black;
+       height: 2px;
+       margin: 1.1rem auto 0 auto;
+       width: 100px;
+   }
+
+   .img-login {
+       width: 70px;
+       height: 70px;
+   }
+
+   h6 {
+       text-align: center;
+   }
+
+   button {
+       width: 50%;
+
+   }
+
+   .btn-btn {
+       background-color: rgb(19, 56, 124);
+       color: white;
+       font-size: 15px;
+       font-style: bold;
+   }
+
+   .btn-btn:hover {
+       background-color: rgba(42, 56, 80, 0.979);
+       color: white;
+       font-size: 15px;
+       font-style: bold;
+   }
