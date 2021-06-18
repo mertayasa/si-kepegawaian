@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\PegawaiDatatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -9,8 +10,12 @@ class PegawaiController extends Controller
 {
     // tampilkan data pegawai
     public function index(){
+        return view('pegawai.view');
+    }
+    
+    public function datatable(){
         $pegawai = DB::table('pegawai')->get();
-        return view('pegawai.view', compact('pegawai'));
+        return PegawaiDatatable::set($pegawai);
     }
 
     public function delete($id){

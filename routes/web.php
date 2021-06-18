@@ -20,13 +20,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-Route::get('/pegawai', 'PegawaiController@index')->name('pegawai');
-Route::get('/pegawai/tambah', 'PegawaiController@tambah')->name('tambah_pegawai');
-Route::post('pegawai/simpan', 'PegawaiController@simpan')->name('simpan_pegawai');
-Route::delete('pegawai/{id}', 'PegawaiController@delete');
-Route::get('pegawai/{id}/edit', 'PegawaiController@edit')->name('edit_pegawai');
-Route::patch('pegawai/{id}', 'PegawaiController@update')->name('update_pegawai');
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'pegawai','as'=>'pegawai.'], function () {
+        Route::get('/', 'PegawaiController@index')->name('index');
+        Route::get('datatable', 'PegawaiController@datatable')->name('datatable');
+        Route::get('tambah', 'PegawaiController@tambah')->name('tambah');
+        Route::post('simpan', 'PegawaiController@simpan')->name('simpan');
+        Route::delete('hapus/{id}', 'PegawaiController@delete')->name('hapus');
+        Route::get('edit/{id}', 'PegawaiController@edit')->name('edit');
+        Route::patch('update/{id}', 'PegawaiController@update')->name('update');
+    });
+});
 
 
 

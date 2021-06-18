@@ -20,7 +20,7 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Form Input Data Pegawai</h6>
                         </div>
-                        <form action="{{route('simpan_pegawai')}}" method="POST">
+                        <form action="{{route('pegawai.simpan')}}" method="POST">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
