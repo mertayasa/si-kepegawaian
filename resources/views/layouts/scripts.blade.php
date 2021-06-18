@@ -14,3 +14,5 @@
 
 <!-- Page level custom scripts -->
 <script src="{{ url('admin/js/demo/datatables-demo.js ') }}"></script>
+
+

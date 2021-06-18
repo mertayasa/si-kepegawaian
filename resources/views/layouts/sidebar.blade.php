@@ -12,7 +12,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route ('dashboard') }}">
             <i class="fas fa-tachometer-alt"></i>
             <span> Dashboard</span></a>
     </li>
@@ -26,8 +26,10 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+
+
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link" href="{{ route ('pegawai') }}">
             <i class="fas fa-table"></i>
             <span>Data Pegawai
                 {{-- <small><i class="fas fa-chevron-right"></i></small> --}}

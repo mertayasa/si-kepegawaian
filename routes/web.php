@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::group(['prefix' => 'pegawai','as'=>'pegawai.'], function () {
         Route::get('/', 'PegawaiController@index')->name('index');
         Route::get('datatable', 'PegawaiController@datatable')->name('datatable');
