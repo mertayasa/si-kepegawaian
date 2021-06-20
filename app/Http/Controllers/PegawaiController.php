@@ -3,82 +3,104 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\PegawaiDatatable;
+use App\Http\Requests\PegawaiRequest;
+use App\Model\Pegawai;
+use App\Repositories\UserRepository;
+use App\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
-class PegawaiController extends Controller
-{
+class PegawaiController extends Controller{
+
+    protected $userRepo;
+
+    public function __construct(UserRepository $userRepo){
+        $this->userRepo = $userRepo;
+    }
+
     // tampilkan data pegawai
     public function index(){
         return view('pegawai.view');
     }
     
     public function datatable(){
-        $pegawai = DB::table('pegawai')->get();
+        $pegawai = $this->userRepo->getAllPegawai();
         return PegawaiDatatable::set($pegawai);
     }
 
-    public function delete($id){
-        DB::table('pegawai')->where('id', $id)->delete();
+    public function destroy(Pegawai $pegawai){
+        $pegawai->delete();
         return redirect()->route('pegawai')->with('message1','Data berhasil dihapus!');
     }
 
-    // methode untuk edit
-    public function edit($id){
-        $pegawai = DB::table('pegawai')->where('id',$id)->first();
+    // method untuk edit
+    public function edit(Pegawai $pegawai){
         return view('pegawai.edit',['pegawai' => $pegawai]);
     }
 
     //metode update
-    public function update(Request $request,$id){
-        DB::table('pegawai')->where('id',$id)->update([
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
-            'umur' => $request->umur,
-            'jk' => $request->jk,
-            'foto' => $request->foto,
-            'golongan' => $request->golongan
-        ]);
-        return redirect()->route('pegawai')->with('message2','Data berhasil diedit!');
+    public function update(PegawaiRequest $request, Pegawai $pegawai){
+        try{
+            $data = $request->all();
+            // dd($data);
+            $base_64_foto = json_decode($request['foto'], true);
+            $upload_image = uploadFile($base_64_foto);
+            
+            if($upload_image == 0){
+                return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
+            }
+
+            if($data['password']){
+                $data['password'] = bcrypt($data['password']);
+            }else{
+                unset($data['password']);
+            }
+
+            $data['foto'] = $upload_image;
+    
+            $pegawai->user->update($data);
+            $pegawai->update($data);
+
+        }catch(Exception $e){
+            Log::info($e->getMessage());
+            return redirect()->back()->withInput()->with('error', 'Gagal mengubah pegawai !');
+        }
+
+        return redirect()->route('pegawai.index')->with('success','Data berhasil diubah!');
     }
 
     //tambah data
-    public function tambah()
-    {
+    public function tambah(){
         return view('pegawai.tambah');
     }
 
-    public function simpan(Request $request){
+    public function simpan(PegawaiRequest $request){
+        
+        try{
+            $data = $request->all();
+            $base_64_foto = json_decode($request['foto'], true);
+            $upload_image = uploadFile($base_64_foto);
+            
+            if($upload_image == 0){
+                return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
+            }
+    
+            $data['foto'] = $upload_image;
+            $data['level'] = 1;
+            $data['password'] = bcrypt($data['password']);
+    
+            $stored_user = $this->userRepo->store($data);
+            $stored_user->pegawai()->create($data);
 
-        $this->_validation($request);
-
-        DB::table('pegawai')->insert([
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
-            'umur' => $request->umur,
-            'jk' => $request->jk,
-            'foto' => $request->foto,
-            'golongan' => $request->golongan,
-        ]);
+        }catch(Exception $e){
+            Log::info($e->getMessage());
+            return redirect()->back()->withInput()->with('error', 'Gagal menambahkan pegawai');
+        }
 
 
-        return redirect()->route('pegawai')->with('message','Data berhasil disimpan!');
-    }
-
-    private function _validation(Request $request){
-        $validation = $request->validate([
-            'nama' => 'required',
-            'alamat' => 'required',
-            'no_hp' => 'required',
-            'umur' => 'required',
-            'jk' => 'required',
-            'foto' => 'required',
-            'golongan' => 'required'
-        ]
-
-    );
+        return redirect()->route('pegawai.index')->with('success','Data berhasil disimpan!');
     }
 
 }

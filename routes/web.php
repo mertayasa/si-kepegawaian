@@ -22,14 +22,25 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    
     Route::group(['prefix' => 'pegawai','as'=>'pegawai.'], function () {
         Route::get('/', 'PegawaiController@index')->name('index');
         Route::get('datatable', 'PegawaiController@datatable')->name('datatable');
         Route::get('tambah', 'PegawaiController@tambah')->name('tambah');
         Route::post('simpan', 'PegawaiController@simpan')->name('simpan');
-        Route::delete('hapus/{id}', 'PegawaiController@delete')->name('hapus');
-        Route::get('edit/{id}', 'PegawaiController@edit')->name('edit');
-        Route::patch('update/{id}', 'PegawaiController@update')->name('update');
+        Route::delete('hapus/{pegawai}', 'PegawaiController@destroy')->name('hapus');
+        Route::get('edit/{pegawai}', 'PegawaiController@edit')->name('edit');
+        Route::patch('update/{pegawai}', 'PegawaiController@update')->name('update');
+    });
+
+    Route::group(['prefix' => 'surat','as'=>'surat.'], function () {
+        Route::get('/', 'SuratController@index')->name('index');
+        Route::get('datatable', 'SuratController@datatable')->name('datatable');
+        Route::get('create', 'SuratController@create')->name('create');
+        Route::post('store', 'SuratController@store')->name('store');
+        Route::delete('destroy/{surat}', 'SuratController@destroy')->name('destroy');
+        Route::get('edit/{surat}', 'SuratController@edit')->name('edit');
+        Route::patch('update/{surat}', 'SuratController@update')->name('update');
     });
 });
 

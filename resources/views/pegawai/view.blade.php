@@ -5,7 +5,7 @@
     </div>
     <p><strong><a href="{{route('pegawai.index')}}" class='text-decoration-none text-gray-900'>Dashboard</a></strong> / Data pegawai</p>
     <!-- Area Table -->
-    {{-- @include('layouts.flash') --}}
+    @include('layouts.flash')
     <div class="col-12 p-0">
         <div class="card shadow mb-4">
             <!-- Card Body -->
@@ -13,9 +13,7 @@
                 <div class="col-12 p-0 mb-3">
                     <div class="row">
                         <div class="col-6 align-items-start">
-                            {{-- <button class="btn btn-warning mb-3 mr-2" onclick="location.href='{{route('subdivision_group.create')}}'">🞤 Create</button> --}}
-                            {{-- <button type="button" class="btn btn-primary mb-3 mr-2" onclick="showCreateModal()" data-target="#createCategoryModal" data-toggle="modal">+ Tambah Menu</button> --}}
-                            {{-- <button class="btn btn-danger mb-3" onclick="initDeleteSelection()"> <i class="fa fa-trash"></i> Hapus Pilihan</button> --}}
+                            <button class="btn btn-primary mb-3 mr-2" onclick="location.href='{{route('pegawai.tambah')}}'">Tambah Pegawai</button>
                         </div>
                         <div class="col-6 d-flex">
                         </div>

@@ -29,7 +29,7 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route ('pegawai') }}">
+        <a class="nav-link" href="{{ route ('pegawai.index') }}">
             <i class="fas fa-table"></i>
             <span>Data Pegawai
                 {{-- <small><i class="fas fa-chevron-right"></i></small> --}}
@@ -46,7 +46,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('surat.index')}}">
             <i class="fas fa-envelope-open-text"></i>
             <span>Data Surat</span></a>
     </li>
