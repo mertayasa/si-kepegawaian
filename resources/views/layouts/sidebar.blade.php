@@ -64,7 +64,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('sakit.index')}}">
             <i class="fas fa-calendar-plus"></i>
             <span>Data Sakit</span></a>
     </li>

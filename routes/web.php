@@ -36,11 +36,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'surat','as'=>'surat.'], function () {
         Route::get('/', 'SuratController@index')->name('index');
         Route::get('datatable', 'SuratController@datatable')->name('datatable');
-        Route::get('create', 'SuratController@create')->name('create');
-        Route::post('store', 'SuratController@store')->name('store');
+        
+        Route::middleware(['is.admin'])->group(function () {
+            Route::get('create', 'SuratController@create')->name('create');
+            Route::post('store', 'SuratController@store')->name('store');
+            Route::get('edit/{surat}', 'SuratController@edit')->name('edit');
+            Route::patch('update/{surat}', 'SuratController@update')->name('update');
+        });
+
         Route::delete('destroy/{surat}', 'SuratController@destroy')->name('destroy');
-        Route::get('edit/{surat}', 'SuratController@edit')->name('edit');
-        Route::patch('update/{surat}', 'SuratController@update')->name('update');
+    });
+
+    Route::group(['prefix' => 'sakit','as'=>'sakit.'], function () {
+        Route::get('/', 'SakitController@index')->name('index');
+        Route::get('datatable', 'SakitController@datatable')->name('datatable');
+        Route::get('create', 'SakitController@create')->name('create');
+        Route::post('store', 'SakitController@store')->name('store');
+        Route::delete('destroy/{surat}', 'SakitController@destroy')->name('destroy');
+        Route::get('edit/{surat}', 'SakitController@edit')->name('edit');
+        Route::patch('update/{surat}', 'SakitController@update')->name('update');
     });
 });
 
