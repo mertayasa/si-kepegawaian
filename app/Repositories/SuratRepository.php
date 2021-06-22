@@ -12,7 +12,8 @@ class SuratRepository{
     }
 
     public function getAllData(){
-        return $this->surat->with('pegawai')->get();
+        // return $this->surat->with('pegawai')->get();
+        return $this->surat->get();
     }
 
     public function store($data){

@@ -3,14 +3,14 @@
 @endpush
 
 <div class="table-responsive">
-    <table class="table table-striped table-hover" id="suratDatatable" width="100%" cellspacing="0">
+    <table class="table table-striped table-hover" id="sakitDatatable" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Foto</th>
-                <th><span style="display: inline-block; width: 150px;">No Surat</span></th>
+                <th>Surat Keterangan</th>
                 <th><span style="display: inline-block; width: 150px;">Pegawai</span></th>
-                <th>Tanggal Surat</th>
+                <th><span style="display: inline-block; width: 150px;">Tanggal</span></th>
+                <th><span style="display: inline-block; width: 150px;">Alasan</span></th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -24,12 +24,12 @@
 <script>
 
     let table
-    let url = "{{ route('surat.datatable') }}"
+    let url = "{{ route('sakit.datatable') }}"
 
     datatable(url)
     function datatable (url){
 
-        table = $('#suratDatatable').DataTable({
+        table = $('#sakitDatatable').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
@@ -37,10 +37,10 @@
             
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
-                {data: 'foto', name: 'foto'},
-                {data: 'no_surat', name: 'no_surat'},
-                {data: 'pegawai.nama', name: 'pegawai.nama'},
-                {data: 'tgl_surat', name: 'tgl_surat'},
+                {data: 'surat_ket', name: 'surat_ket'},
+                {data: 'pegawai.user.nama', name: 'pegawai.user.nama'},
+                {data: 'tanggal', name: 'tanggal'},
+                {data: 'alasan', name: 'alasan'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ],
             columnDefs: [

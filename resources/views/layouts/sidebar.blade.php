@@ -17,35 +17,35 @@
             <span> Dashboard</span></a>
     </li>
 
-    {{-- {{Auth::user()->level}} --}}
-
     <!-- Divider -->
     <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Pegawai
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-
-
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route ('pegawai.index') }}">
-            <i class="fas fa-table"></i>
-            <span>Data Pegawai
-                {{-- <small><i class="fas fa-chevron-right"></i></small> --}}
-            </span>
-
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-light py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Kelola Data Pegawai</h6>
-                <a class="collapse-item" href={{ route ('pegawai.tambah') }}>Tambah Pegawai</a>
-                <a class="collapse-item" href={{ route ('pegawai.index') }}>Data Pegawai</a>
-            </div>
+    @if (userRole() == 'admin')
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Pegawai
         </div>
-    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route ('pegawai.index') }}">
+                <i class="fas fa-table"></i>
+                <span>Data Pegawai
+                    {{-- <small><i class="fas fa-chevron-right"></i></small> --}}
+                </span>
+
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-light py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Kelola Data Pegawai</h6>
+                    <a class="collapse-item" href={{ route ('pegawai.tambah') }}>Tambah Pegawai</a>
+                    <a class="collapse-item" href={{ route ('pegawai.index') }}>Data Pegawai</a>
+                </div>
+            </div>
+        </li>  
+    @endif
+
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('surat.index')}}">

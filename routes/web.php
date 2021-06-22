@@ -23,7 +23,7 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     
-    Route::group(['prefix' => 'pegawai','as'=>'pegawai.'], function () {
+    Route::group(['prefix' => 'pegawai','as'=>'pegawai.', 'middleware' => 'role:admin'], function () {
         Route::get('/', 'PegawaiController@index')->name('index');
         Route::get('datatable', 'PegawaiController@datatable')->name('datatable');
         Route::get('tambah', 'PegawaiController@tambah')->name('tambah');
@@ -37,24 +37,32 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'SuratController@index')->name('index');
         Route::get('datatable', 'SuratController@datatable')->name('datatable');
         
-        Route::middleware(['is.admin'])->group(function () {
+        // Route::middleware(['role:admin'])->group(function () {
+        //     Route::get('confirmation', 'SuratController@confirmation')->name('confirmation');
+        // });
+        
+        // Route::middleware(['role:pegawai'])->group(function () {
             Route::get('create', 'SuratController@create')->name('create');
             Route::post('store', 'SuratController@store')->name('store');
             Route::get('edit/{surat}', 'SuratController@edit')->name('edit');
             Route::patch('update/{surat}', 'SuratController@update')->name('update');
-        });
+            Route::delete('destroy/{surat}', 'SuratController@destroy')->name('destroy');
+        // });
 
-        Route::delete('destroy/{surat}', 'SuratController@destroy')->name('destroy');
     });
 
     Route::group(['prefix' => 'sakit','as'=>'sakit.'], function () {
         Route::get('/', 'SakitController@index')->name('index');
         Route::get('datatable', 'SakitController@datatable')->name('datatable');
-        Route::get('create', 'SakitController@create')->name('create');
-        Route::post('store', 'SakitController@store')->name('store');
-        Route::delete('destroy/{surat}', 'SakitController@destroy')->name('destroy');
-        Route::get('edit/{surat}', 'SakitController@edit')->name('edit');
-        Route::patch('update/{surat}', 'SakitController@update')->name('update');
+
+        Route::middleware(['role:pegawai'])->group(function () {
+            Route::get('create', 'SakitController@create')->name('create');
+            Route::post('store', 'SakitController@store')->name('store');
+            Route::delete('destroy/{surat}', 'SakitController@destroy')->name('destroy');
+            Route::get('edit/{surat}', 'SakitController@edit')->name('edit');
+            Route::patch('update/{surat}', 'SakitController@update')->name('update');
+        });
+        
     });
 });
 

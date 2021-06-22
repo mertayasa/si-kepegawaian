@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class IsAdmin{
 
     public function handle($request, Closure $next){
-        if(Auth::user()->level == 0){
+        if(Auth::user()->level == 1){
             abort(403);
         }
         return $next($request);

@@ -5,15 +5,15 @@
 <div class="table-responsive">
     <table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
         <thead>
-            <tr class="text-center">
+            <tr>
                 <th>No</th>
                 <th>Foto</th>
                 <th><span style="display: inline-block; width: 150px;">Nama</span></th>
-                <th><span style="display: inline-block; width: 150px;">Alamat</span></th>
                 <th>No.Telp</th>
                 <th>Umur</th>
                 <th>Jenis Kelamin</th>
                 <th>Golongan</th>
+                <th><span style="display: inline-block; width: 150px;">Alamat</span></th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -40,13 +40,13 @@
             
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
-                {data: 'foto', name: 'foto'},
-                {data: 'nama', name: 'nama'},
-                {data: 'alamat', name: 'alamat'},
-                {data: 'no_hp', name: 'no_hp'},
+                {data: 'foto', name: 'foto', orderable: false, searchable: false},
+                {data: 'user.nama', name: 'user.nama', orderable: false},
+                {data: 'no_hp', name: 'no_hp', orderable: false},
                 {data: 'umur', name: 'umur'},
-                {data: 'jk', name: 'jk'},
-                {data: 'golongan', name: 'golongan'},
+                {data: 'jk', name: 'jk', orderable: false},
+                {data: 'golongan', name: 'golongan', orderable: false},
+                {data: 'alamat', name: 'alamat', orderable: false},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ],
             columnDefs: [

@@ -15,13 +15,13 @@ class CreateSuratsTable extends Migration
     {
         Schema::create('surat', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('pegawai_id');
+            // $table->unsignedInteger('pegawai_id');
             $table->string('no_surat');
             $table->date('tgl_surat');
             $table->text('foto');
             $table->timestamps();
 
-            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

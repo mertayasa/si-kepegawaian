@@ -6,7 +6,10 @@ use App\DataTables\SakitDatatable;
 use App\Model\Sakit;
 use App\Repositories\SakitRepository;
 use App\Repositories\UserRepository;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class SakitController extends Controller{
     protected $sakitRepo;
@@ -22,7 +25,12 @@ class SakitController extends Controller{
     }
 
     public function datatable(){
-        $sakit = $this->sakitRepo->getAllData();
+        if(userRole() == 'admin'){
+            $sakit = $this->sakitRepo->getAllData();
+        }else{
+            $sakit = $this->sakitRepo->getAllData()->where('pegawai_id', Auth::user()->pegawai->id);
+        }
+
         return SakitDatatable::set($sakit);
     }
 
@@ -34,14 +42,17 @@ class SakitController extends Controller{
     public function store(Request $request){
         try{
             $data = $request->all();
-            $base_64_foto = json_decode($request['foto'], true);
+            $base_64_foto = json_decode($request['surat_ket'], true);
             $upload_image = uploadFile($base_64_foto);
             
             if($upload_image == 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
 
-            $data['foto'] = $upload_image;
+            $data['surat_ket'] = $upload_image;
+            $data['pegawai_id'] = Auth::user()->pegawai->id;
+
+            // dd($data);
 
             $this->sakitRepo->store($data);
         }catch(Exception $e){

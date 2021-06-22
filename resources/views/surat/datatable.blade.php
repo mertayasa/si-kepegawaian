@@ -9,7 +9,7 @@
                 <th>No</th>
                 <th>Foto</th>
                 <th><span style="display: inline-block; width: 150px;">No Surat</span></th>
-                <th><span style="display: inline-block; width: 150px;">Pegawai</span></th>
+                {{-- <th><span style="display: inline-block; width: 150px;">Pegawai</span></th> --}}
                 <th>Tanggal Surat</th>
                 <th>Aksi</th>
             </tr>
@@ -35,11 +35,11 @@
             responsive: true,
             ajax: url,
             
+            // {data: 'pegawai.nama', name: 'pegawai.nama'},
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
                 {data: 'foto', name: 'foto'},
                 {data: 'no_surat', name: 'no_surat'},
-                {data: 'pegawai.nama', name: 'pegawai.nama'},
                 {data: 'tgl_surat', name: 'tgl_surat'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ],
@@ -49,7 +49,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 5
+                    responsivePriority: 1, targets: 4
                 },
             ],
             language: {

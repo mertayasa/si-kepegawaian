@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 
@@ -24,4 +25,16 @@ function editOrCreate(){
     };
 
     return 'edit';
+}
+
+function userRole(){
+    $role_name = Auth::user()->level == 1 ? 'pegawai' : 'admin';
+
+    return $role_name;
+}
+
+function getGender($gender_code){
+    $gener = $gender_code == 'L' ? 'Laki-Laki' : 'Perempuan';
+
+    return $gener;
 }

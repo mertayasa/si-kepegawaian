@@ -16,14 +16,12 @@ class CreateSakitsTable extends Migration
         Schema::create('sakit', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('pegawai_id')->nullable();
-            $table->unsignedInteger('admin_id')->nullable();
             $table->text('surat_ket');
             $table->date('tanggal');
             $table->text('alasan');
             $table->timestamps();
 
             $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -11,13 +11,15 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="col-12 p-0 mb-3">
-                    <div class="row">
-                        <div class="col-6 align-items-start">
-                            <button class="btn btn-primary mb-3 mr-2" onclick="location.href='{{route('sakit.create')}}'">Tambah Data</button>
+                    @if (userRole() == 'pegawai')
+                        <div class="row">
+                            <div class="col-6 align-items-start">
+                                <button class="btn btn-primary mb-3 mr-2" onclick="location.href='{{route('sakit.create')}}'">Tambah Data</button>
+                            </div>
+                            <div class="col-6 d-flex">
+                            </div>
                         </div>
-                        <div class="col-6 d-flex">
-                        </div>
-                    </div>
+                    @endif
                 </div>
                 @include('sakit.datatable')
             </div>

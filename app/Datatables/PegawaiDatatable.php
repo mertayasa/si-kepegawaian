@@ -12,6 +12,9 @@ class PegawaiDatatable{
             ->editColumn('foto', function($pegawai){
                 return '<img src="'.asset('images/'.$pegawai->foto).'" alt="" width="100px">';
             })
+            ->editColumn('jk', function($pegawai){
+                return getGender($pegawai->jk);
+            })
             ->addColumn('action', function($pegawai){
                 $deleteUrl = "'".route('pegawai.hapus', $pegawai->id)."', 'pegawaiDatatable'";
                 return  '<div class="btn-group">'.

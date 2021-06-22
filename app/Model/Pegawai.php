@@ -9,7 +9,6 @@ class Pegawai extends Model{
 
     protected $fillable = [
         'user_id',
-        'nama',
         'alamat',
         'no_hp',
         'umur',
@@ -28,5 +27,13 @@ class Pegawai extends Model{
 
     public function getEmailAttribute(){
         return $this->user->email;
+    }
+
+    public function getNamaAttribute(){
+        return $this->user->nama;
+    }
+
+    public function getUsernameAttribute(){
+        return $this->user->username;
     }
 }

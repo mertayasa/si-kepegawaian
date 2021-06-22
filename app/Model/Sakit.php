@@ -8,14 +8,13 @@ class Sakit extends Model{
     public $table = 'sakit';
 
     protected $fillable = [
-        'id_pegawai',
-        'id_admin',
+        'pegawai_id',
         'surat_ket',
         'tanggal',
         'alasan'
     ];
 
     public function pegawai(){
-        return $this->belongsTo('App\Pegawai', 'pegawai_id');
+        return $this->belongsTo('App\Model\Pegawai', 'pegawai_id');
     }
 }

@@ -16,14 +16,12 @@ class CreateCutisTable extends Migration
         Schema::create('cuti', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('pegawai_id')->nullable();
-            $table->unsignedInteger('admin_id')->nullable();
             $table->text('dari_tgl');
             $table->date('sampai_tgl');
             $table->text('alasan');
             $table->timestamps();
 
             $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

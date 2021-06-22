@@ -1,22 +1,23 @@
-    <div class="form-group">
-        <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
-        {!! Form::select('pegawai_id', $pegawai, isset($surat) ? $surat->pegawai_id : null, ['class' => 'form-control init-select2']) !!}
+    <div class="row">
+        <div class="form-group col-12 col-md-6">
+            <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
+            {!! Form::text('pegawai_id', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
+        </div>
+    
+        <div class="form-group col-12 col-md-6">
+            <label @error('tanggal') class="text-danger" @enderror>Tanggal @error('tanggal') | {{ $message }}@enderror</label>
+            {!! Form::date('tanggal', null, ['class' => 'form-control']) !!}
+        </div>
     </div>
 
-    <div class="form-group">
-        <label @error('no_surat') class="text-danger" @enderror>Nomor Surat @error('no_surat') | {{ $message }}@enderror</label>
-        {!! Form::text('no_surat', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        <label @error('tgl_surat') class="text-danger" @enderror>Tanggal Surat @error('tgl_surat') | {{ $message }}@enderror</label>
-        {!! Form::date('tgl_surat', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        <div class="col-6 p-0">
-            <label @error('foto') class="text-danger" @enderror>Foto @error('foto') | {{ $message }} @enderror</label>
-            {!! Form::file('foto', ['class' => 'd-block filepond', 'id' => 'foto']) !!}
+    <div class="row">
+        <div class="form-group col-12 col-md-6">
+            <label @error('alasan') class="text-danger" @enderror>Alasan @error('alasan') | {{ $message }}@enderror</label>
+            {!! Form::textarea('alasan', null, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group col-12 col-md-6">
+            <label @error('surat_ket') class="text-danger" @enderror>Surat Sakit @error('surat_ket') | {{ $message }} @enderror</label>
+            {!! Form::file('surat_ket', ['class' => 'd-block filepond', 'id' => 'foto']) !!}
         </div>
     </div>
 

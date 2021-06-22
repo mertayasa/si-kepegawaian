@@ -1,7 +1,9 @@
+    {{-- {!! Form::hidden('pegawai_id', Auth::user()->pegawai->id, []) !!}
+
     <div class="form-group">
         <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
-        {!! Form::select('pegawai_id', $pegawai, isset($surat) ? $surat->pegawai_id : null, ['class' => 'form-control init-select2']) !!}
-    </div>
+        {!! Form::text('pegawai_name', Auth::user()->, [$options]) !!}
+    </div> --}}
 
     <div class="form-group">
         <label @error('no_surat') class="text-danger" @enderror>Nomor Surat @error('no_surat') | {{ $message }}@enderror</label>
