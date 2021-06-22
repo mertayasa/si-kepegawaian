@@ -66,15 +66,11 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{route('sakit.index')}}">
-            <i class="fas fa-calendar-plus"></i>
-            <span>Data Sakit</span></a>
+        <a class="nav-link" href="{{route('sakit.index')}}"><i class="fas fa-calendar-plus"></i><span>Data Sakit</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-business-time"></i>
-            <span>Data Cuti</span></a>
+        <a class="nav-link" href="{{route('cuti.index')}}"> <i class="fas fa-business-time"></i><span>Data Cuti</span></a>
     </li>
 
 
