@@ -23,9 +23,20 @@
                                     @csrf
                                         <div class="form-group">
 
-                                            <input type="name" class="form-control @error('name') is-invalid @enderror form-control-user"
-                                            name="name" value="{{ old('name') }}" required autocomplete="name" id="name" autofocus placeholder="Nama" >
-                                            @error('name')
+                                            <input type="name" class="form-control @error('nama') is-invalid @enderror form-control-user"
+                                            name="nama" value="{{ old('nama') }}" required autocomplete="name" id="name" autofocus placeholder="Nama" >
+                                            @error('nama')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <input type="text" class="form-control @error('username') is-invalid @enderror form-control-user"
+                                            name="username" value="{{ old('username') }}" required autocomplete="username" id="username" placeholder="Username" >
+                                            @error('username')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

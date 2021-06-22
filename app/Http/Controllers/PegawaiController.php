@@ -44,7 +44,6 @@ class PegawaiController extends Controller{
     public function update(PegawaiRequest $request, Pegawai $pegawai){
         try{
             $data = $request->all();
-            // dd($data);
             $base_64_foto = json_decode($request['foto'], true);
             $upload_image = uploadFile($base_64_foto);
             

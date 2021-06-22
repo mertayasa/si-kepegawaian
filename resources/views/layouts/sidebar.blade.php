@@ -17,6 +17,8 @@
             <span> Dashboard</span></a>
     </li>
 
+    {{-- {{Auth::user()->level}} --}}
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 

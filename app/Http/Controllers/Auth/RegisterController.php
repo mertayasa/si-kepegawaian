@@ -50,11 +50,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        return $validator;
+
+        // dd($validator->getMessageBag());
+
     }
 
     /**
@@ -63,13 +69,21 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
+    protected function create(array $data){
+        
+        $user = User::create([
             'nama' => $data['nama'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'level' => 0
         ]);
 
+        $initial_admin = [
+            'alamat' => 'alamat',
+            'no_hp' => '0819341298',
+        ];
+        $user->admin()->create($initial_admin);
+        return $user;
     }
 }

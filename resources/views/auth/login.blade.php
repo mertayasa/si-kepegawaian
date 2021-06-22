@@ -22,10 +22,18 @@
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                     @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control @error('email') is-invalid @enderror form-control-user"
+                                            {{-- <input type="email" class="form-control @error('email') is-invalid @enderror form-control-user"
                                             name="email" value="{{ old('email') }}" required autocomplete="email" id="exampleInputEmail"
                                             aria-describedby="emailHelp" autofocus placeholder="Enter Email Address..." >
                                             @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror --}}
+
+                                            <input id="exampleInputEmail" type="username" class="form-control form-control-user @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
+    
+                                            @error('username')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -62,7 +70,7 @@
                                         <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                        {{-- <a class="small" href="{{ route('register') }}">Create an Account!</a> --}}
                                     </div>
                                 </div>
                             </div>

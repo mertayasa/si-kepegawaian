@@ -8,7 +8,6 @@ class Admin extends Model{
     
     protected $fillable = [
         'user_id',
-        'nama',
         'alamat',
         'no_hp',
         'foto'
