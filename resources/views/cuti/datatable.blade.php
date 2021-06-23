@@ -39,7 +39,7 @@
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
                 {data: 'pegawai.user.nama', name: 'pegawai.user.nama'},
-                {data: 'status', name: 'status'},
+                {data: 'status', name: 'status', orderable: false, searchable: false},
                 {data: 'dari_tgl', name: 'dari_tgl'},
                 {data: 'sampai_tgl', name: 'sampai_tgl'},
                 {data: 'alasan', name: 'alasan', orderable: false},
