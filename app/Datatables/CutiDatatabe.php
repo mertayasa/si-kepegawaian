@@ -27,14 +27,16 @@ class CutiDatatable{
                 }
             })
             ->addColumn('action', function($cuti){
-                if(userRole() == 'pegawai' && $cuti->status != 1){
-                    $deleteUrl = "'".route('cuti.destroy', $cuti->id)."', 'cutiDatatable'";
-                    return  '<div class="btn-group">'.
-                        '<a href="'.route('cuti.edit',$cuti->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
-                        '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
-                    '</div>';
-                }else{
-                    return '<button class="btn btn-primary btn-sm" style="pointer-events: none;"> <i class="menu-icon fa fa-check"></i> Diterima</button>';
+                if(userRole() == 'pegawai'){
+                    if($cuti->status != 1){
+                        $deleteUrl = "'".route('cuti.destroy', $cuti->id)."', 'cutiDatatable'";
+                        return  '<div class="btn-group">'.
+                            '<a href="'.route('cuti.edit',$cuti->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
+                            '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
+                        '</div>';
+                    }else{
+                        return '<button class="btn btn-primary btn-sm" style="pointer-events: none;"> <i class="menu-icon fa fa-check"></i> Diterima</button>';
+                    }
                 }
 
                 $updateRoute1 = "'".route('cuti.updateStatus', [$cuti->id, 1])."', 'cutiDatatable'";
