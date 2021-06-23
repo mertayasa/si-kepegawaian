@@ -4,16 +4,16 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cuti extends Model{
-    
-    public $table = 'cuti';
+class Sanksi extends Model
+{
+    public $table = 'sanksi';
 
     protected $fillable = [
         'pegawai_id',
-        'dari_tgl',
-        'sampai_tgl',
-        'alasan',
-        'status'
+        'golongan',
+        'jabatan',
+        'keterangan',
+        'surat_sanksi'
     ];
 
     public function pegawai(){

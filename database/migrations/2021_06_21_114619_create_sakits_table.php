@@ -32,6 +32,6 @@ class CreateSakitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sakits');
+        Schema::dropIfExists('sakit');
     }
 }

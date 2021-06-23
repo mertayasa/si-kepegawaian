@@ -54,16 +54,14 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-exclamation-circle"></i>
-            <span>Data Sanksi</span></a>
+        <a class="nav-link" href="{{route('sanksi.index')}}"> <i class="fas fa-exclamation-circle"></i><span>Data Sanksi</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-money-check-alt"></i>
-            <span>Data Gaji</span></a>
-    </li>
+    @if (userRole() == 'admin')
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html"> <i class="fas fa-money-check-alt"></i> <span>Data Gaji</span></a>
+        </li>
+    @endif
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('sakit.index')}}"><i class="fas fa-calendar-plus"></i><span>Data Sakit</span></a>

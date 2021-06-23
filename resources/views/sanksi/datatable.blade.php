@@ -3,16 +3,15 @@
 @endpush
 
 <div class="table-responsive">
-    <table class="table table-striped table-hover" id="cutiDatatable" width="100%" cellspacing="0">
+    <table class="table table-striped table-hover" id="sakitDatatable" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Pegawai</th>
-                <th>Status</th>
-                <th><span style="display: inline-block; width: 150px;">Dari Tanggal</span></th>
-                <th><span style="display: inline-block; width: 150px;">Smpai Tanggal</span></th>
+                <th>Surat Keterangan</th>
+                <th><span style="display: inline-block; width: 150px;">Pegawai</span></th>
+                <th><span style="display: inline-block; width: 150px;">Tanggal</span></th>
                 <th><span style="display: inline-block; width: 150px;">Alasan</span></th>
-                <th><span style="display: inline-block; width: 150px;">Aksi</span></th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -25,12 +24,12 @@
 <script>
 
     let table
-    let url = "{{ route('cuti.datatable') }}"
+    let url = "{{ route('sakit.datatable') }}"
 
     datatable(url)
     function datatable (url){
 
-        table = $('#cutiDatatable').DataTable({
+        table = $('#sakitDatatable').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
@@ -38,11 +37,10 @@
             
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
+                {data: 'surat_ket', name: 'surat_ket'},
                 {data: 'pegawai.user.nama', name: 'pegawai.user.nama'},
-                {data: 'status', name: 'status'},
-                {data: 'dari_tgl', name: 'dari_tgl'},
-                {data: 'sampai_tgl', name: 'sampai_tgl'},
-                {data: 'alasan', name: 'alasan', orderable: false},
+                {data: 'tanggal', name: 'tanggal'},
+                {data: 'alasan', name: 'alasan'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ],
             columnDefs: [
@@ -51,7 +49,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 6
+                    responsivePriority: 1, targets: 5
                 },
             ],
             language: {

@@ -51,9 +51,23 @@ Route::group(['middleware' => 'auth'], function () {
         Route::middleware(['role:pegawai'])->group(function () {
             Route::get('create', 'SakitController@create')->name('create');
             Route::post('store', 'SakitController@store')->name('store');
-            Route::delete('destroy/{surat}', 'SakitController@destroy')->name('destroy');
-            Route::get('edit/{surat}', 'SakitController@edit')->name('edit');
-            Route::patch('update/{surat}', 'SakitController@update')->name('update');
+            Route::delete('destroy/{sakit}', 'SakitController@destroy')->name('destroy');
+            Route::get('edit/{sakit}', 'SakitController@edit')->name('edit');
+            Route::patch('update/{sakit}', 'SakitController@update')->name('update');
+        });
+
+    });
+
+    Route::group(['prefix' => 'sanksi','as'=>'sanksi.'], function () {
+        Route::get('/', 'SanksiController@index')->name('index');
+        Route::get('datatable', 'SanksiController@datatable')->name('datatable');
+
+        Route::middleware(['role:admin'])->group(function () {
+            Route::get('create', 'SanksiController@create')->name('create');
+            Route::post('store', 'SanksiController@store')->name('store');
+            Route::delete('destroy/{sanksi}', 'SanksiController@destroy')->name('destroy');
+            Route::get('edit/{sanksi}', 'SanksiController@edit')->name('edit');
+            Route::patch('update/{sanksi}', 'SanksiController@update')->name('update');
         });
 
     });
@@ -61,6 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'cuti','as'=>'cuti.'], function () {
         Route::get('/', 'CutiController@index')->name('index');
         Route::get('datatable', 'CutiController@datatable')->name('datatable');
+        Route::get('updateStatus/{cuti}/{status}', 'CutiController@updateStatus')->name('updateStatus');
 
         Route::middleware(['role:pegawai'])->group(function () {
             Route::get('create', 'CutiController@create')->name('create');

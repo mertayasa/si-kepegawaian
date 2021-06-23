@@ -15,13 +15,40 @@ class CutiDatatable{
             ->editColumn('sampai_tgl', function($cuti){
                 return Carbon::parse($cuti->sampai_tgl)->isoFormat('LL');
             })
+            ->editColumn('status', function($cuti){
+                if($cuti->status == 0){
+                    return '<span class="badge badge-warning">Belum Diterima</span>';
+                }
+                if($cuti->status == 1){
+                    return '<span class="badge badge-primary">Diterima</span>';
+                }
+                if($cuti->status == 2){
+                    return '<span class="badge badge-danger">Ditolak</span>';
+                }
+            })
             ->addColumn('action', function($cuti){
-                $deleteUrl = "'".route('cuti.destroy', $cuti->id)."', 'cutiDatatable'";
-                return  '<div class="btn-group">'.
-                    '<a href="'.route('cuti.edit',$cuti->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
-                    '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
-                '</div>';
-            })->addIndexColumn()->rawColumns(['action', 'surat_ket'])->make(true);
+                if(userRole() == 'pegawai'){
+                    $deleteUrl = "'".route('cuti.destroy', $cuti->id)."', 'cutiDatatable'";
+                    return  '<div class="btn-group">'.
+                        '<a href="'.route('cuti.edit',$cuti->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
+                        '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
+                    '</div>';
+                }
+
+                // if($cuti->status == 0){
+                //     return '<a href="'.route('cuti.updateStatus',$cuti->id).'" class="btn btn-primary" ><i class="menu-icon fa fa-check"></i> Diterima</a>';
+                // }
+
+                // if($cuti->status != 0){
+                $updateRoute1 = "'".route('cuti.updateStatus', [$cuti->id, 1])."', 'cutiDatatable'";
+                $updateRoute2 = "'".route('cuti.updateStatus', [$cuti->id, 2])."', 'cutiDatatable'";
+                return '<div class="btn-group">'.
+                        '<a href="#" onclick="updateStatus('.$updateRoute1.', 1)" class="btn btn-primary btn-sm" ><i class="menu-icon fa fa-check"></i> Terima</a>
+                        <a href="#" onclick="updateStatus('.$updateRoute2.', 2)" class="btn btn-danger btn-sm" ><i class="menu-icon fa fa-times"></i> Tolak</a>'.
+                        '</div>';
+                    
+                // }
+            })->addIndexColumn()->rawColumns(['action', 'surat_ket', 'status'])->make(true);
     }
 
 }

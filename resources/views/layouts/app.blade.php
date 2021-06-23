@@ -150,6 +150,51 @@
             }
         })
       }
+
+    function updateStatus(updateUrl, tableId, status){
+        let confirmation
+        if(status == 1){
+          confirmation = 'Terima pengajuan cuti ?'
+        }else{
+          confirmation = 'Tolak pengajuan cuti ?'
+        }
+        Swal.fire({
+            title: "Warning",
+            text: confirmation,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#169b6b',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url : updateUrl,
+                    dataType : "Json",
+                    data : {"_token": "{{ csrf_token() }}"},
+                    method : "get",
+                    success:function(data){
+                        console.log(data)
+                        if(data.code == 1){
+                            Swal.fire(
+                                'Berhasil',
+                                data.message,
+                                'success'
+                        )
+                        }else{
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data.message
+                            })
+                        }
+                        $('#'+tableId).DataTable().ajax.reload();
+                    }
+                })
+            }
+        })
+      }
   </script>
   @stack('scripts')
 </body>

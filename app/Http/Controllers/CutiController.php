@@ -72,6 +72,22 @@ class CutiController extends Controller
         return redirect()->route('cuti.index')->with('success','Data cuti berhasil diubah!');
     }
 
+    public function updateStatus(Cuti $cuti, $status){
+        try{
+            if($status == 1 || $status == 2){
+                $cuti->status = $status;
+                $cuti->save();
+            }else{
+                return response(['code' => 0, 'message' => 'Gagal mengubah status pengajuan cuti!']);
+            }
+        }catch(Exception $e){
+            Log::info($e->getMessage());
+            return response(['code' => 0, 'message' => 'Gagal mengubah status pengajuan cuti!']);
+        }
+
+        return response(['code' => 1, 'message' => 'Berhasi mengubah pengajuan cuti']);
+    }
+
     public function destroy(Cuti $cuti){
         try{
             $this->cutiRepo->destroy($cuti);
