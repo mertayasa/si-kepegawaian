@@ -8,7 +8,7 @@
 }
 
 .sidebar {
-    background-color: #126E82;
+    background-color: rgb(1, 40, 71);
 }
 
 .sidebar span {
@@ -16,5 +16,3 @@
     color: white;
     font-style: bold;
 }
-
-
