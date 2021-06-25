@@ -86,6 +86,13 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 
+    Route::group(['prefix' => 'gaji','as'=>'gaji.', 'middleware' => 'role:admin'], function () {
+        Route::get('/', 'GajiController@index')->name('index');
+        Route::get('datatable', 'GajiController@datatable')->name('datatable');
+        Route::get('edit/{gaji}', 'GajiController@edit')->name('edit');
+        Route::get('update/{gaji}', 'GajiController@update')->name('update');
+    });
+
 });
 
 

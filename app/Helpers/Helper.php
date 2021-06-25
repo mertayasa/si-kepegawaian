@@ -38,3 +38,7 @@ function getGender($gender_code){
 
     return $gener;
 }
+
+function formatPrice($value){
+    return 'Rp '. number_format($value,0,',','.');
+}

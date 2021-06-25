@@ -59,7 +59,7 @@
 
     @if (userRole() == 'admin')
         <li class="nav-item">
-            <a class="nav-link" href="charts.html"> <i class="fas fa-money-check-alt"></i> <span>Data Gaji</span></a>
+            <a class="nav-link" href="{{route('gaji.index')}}"> <i class="fas fa-money-check-alt"></i> <span>Data Gaji</span></a>
         </li>
     @endif
 
