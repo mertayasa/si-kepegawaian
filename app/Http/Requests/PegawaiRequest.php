@@ -17,9 +17,10 @@ class PegawaiRequest extends FormRequest{
             'no_hp' => 'required|numeric|digits_between:10,15',
             'umur' => 'required|numeric|min:17|max:65',
             'jk' => 'required',
-            'golongan' => 'required|numeric|digits_between:1,4'
+            'golongan' => 'required'
         ];
-
+        // 'golongan' => 'required|numeric|digits_between:1,4'
+        
         if ($this->getMethod() == 'POST') {
             $rules += ['password' => 'required|string|min:8|confirmed'];
             $rules += ['foto' => 'required'];

@@ -93,6 +93,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('update/{gaji}', 'GajiController@update')->name('update');
     });
 
+    Route::group(['prefix' => 'profile','as'=>'profile.'], function () {
+        Route::get('edit/{user}', 'UserController@edit')->name('edit');
+        Route::patch('update/{user}', 'UserController@update')->name('update');
+    });
+
+
 });
 
 

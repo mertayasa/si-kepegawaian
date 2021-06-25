@@ -42,3 +42,11 @@ function getGender($gender_code){
 function formatPrice($value){
     return 'Rp '. number_format($value,0,',','.');
 }
+
+function getAvatar(){
+    if(Auth::user()->level == 0){
+        return Auth::user()->admin->foto;
+    }
+
+    return Auth::user()->pegawai->foto;
+}
