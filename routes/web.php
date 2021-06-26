@@ -52,9 +52,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('create', 'SakitController@create')->name('create');
             Route::post('store', 'SakitController@store')->name('store');
             Route::delete('destroy/{sakit}', 'SakitController@destroy')->name('destroy');
-            Route::get('edit/{sakit}', 'SakitController@edit')->name('edit');
-            Route::patch('update/{sakit}', 'SakitController@update')->name('update');
         });
+        
+        Route::get('edit/{sakit}', 'SakitController@edit')->name('edit');
+        Route::patch('update/{sakit}', 'SakitController@update')->name('update');
 
     });
 

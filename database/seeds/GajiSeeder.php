@@ -8,24 +8,24 @@ class GajiSeeder extends Seeder
     public function run(){
         $gaji = [
             [
-                'golongan' => 'Golongan 1',
-                'gaji' => rand(1000000, 3000000),
-                'jabatan' => 'Jabatan 1'
+                'golongan' => 'Golongan IV',
+                'gaji' => 5500000,
+                'jabatan' => 'Sekre'
             ],
             [
-                'golongan' => 'Golongan 1',
-                'gaji' => rand(1000000, 3000000),
-                'jabatan' => 'Jabatan 2'
+                'golongan' => 'Golongan III',
+                'gaji' => 4500000,
+                'jabatan' => 'KaBag'
             ],
             [
-                'golongan' => 'Golongan 2',
-                'gaji' => rand(1000000, 3000000),
-                'jabatan' => 'Jabatan 1'
+                'golongan' => 'Golongan II',
+                'gaji' => 3500000,
+                'jabatan' => 'KaSuBag'
             ],
             [
-                'golongan' => 'Golongan 1',
-                'gaji' => rand(1000000, 3000000),
-                'jabatan' => 'Jabatan 2'
+                'golongan' => 'Golongan I',
+                'gaji' => 2500000,
+                'jabatan' => 'Bag'
             ],
         ];
 

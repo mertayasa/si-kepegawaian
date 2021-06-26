@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\SuratDatatable;
+use App\Http\Requests\SuratRequest;
 use App\Model\Surat;
 use App\Repositories\SuratRepository;
 use App\Repositories\UserRepository;
@@ -34,7 +35,7 @@ class SuratController extends Controller{
         return view('surat.create', compact('pegawai'));
     }
 
-    public function store(Request $request){
+    public function store(SuratRequest $request){
         try{
             $data = $request->all();
             $base_64_foto = json_decode($request['foto'], true);
@@ -64,7 +65,7 @@ class SuratController extends Controller{
         return view('surat.edit', compact('surat', 'pegawai'));
     }
 
-    public function update(Request $request, Surat $surat){
+    public function update(SuratRequest $request, Surat $surat){
         try{
             $data = $request->all();
             $base_64_foto = json_decode($request['foto'], true);

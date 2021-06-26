@@ -15,6 +15,9 @@ class PegawaiDatatable{
             ->editColumn('jk', function($pegawai){
                 return getGender($pegawai->jk);
             })
+            ->editColumn('jabatan', function($pegawai){
+                return getJabatan($pegawai->golongan);
+            })
             ->addColumn('action', function($pegawai){
                 $deleteUrl = "'".route('pegawai.hapus', $pegawai->id)."', 'pegawaiDatatable'";
                 return  '<div class="btn-group">'.

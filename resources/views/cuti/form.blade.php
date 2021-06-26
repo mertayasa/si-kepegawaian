@@ -1,25 +1,30 @@
     <div class="row">
-        <div class="form-group col-12 col-md-6">
-            <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
-            {!! Form::text('pegawai_id', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
+        <div class="col-12 col-md-6">
+            <div class="form-group col-12">
+                <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
+                {!! Form::text('pegawai_id', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
+            </div>
+        
+            <div class="form-group col-12">
+                <label @error('dari_tgl') class="text-danger" @enderror>Dari Tanggal @error('dari_tgl') | {{ $message }}@enderror</label>
+                {!! Form::date('dari_tgl', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group col-12 ">
+                <label @error('sampai_tgl') class="text-danger" @enderror>Sampai Tanggal @error('sampai_tgl') | {{ $message }}@enderror</label>
+                {!! Form::date('sampai_tgl', null, ['class' => 'form-control']) !!}
+            </div>
         </div>
-    
-        <div class="form-group col-12 col-md-6">
-            <label @error('dari_tgl') class="text-danger" @enderror>Dari Tanggal @error('dari_tgl') | {{ $message }}@enderror</label>
-            {!! Form::date('dari_tgl', null, ['class' => 'form-control']) !!}
+
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label @error('alasan') class="text-danger" @enderror>Alasan @error('alasan') | {{ $message }} @enderror</label>
+                    {!! Form::textarea('alasan', null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="form-group col-12 col-md-6 order-2">
-            <label @error('alasan') class="text-danger" @enderror>Alasan @error('alasan') | {{ $message }} @enderror</label>
-            {!! Form::textarea('alasan', null, ['class' => 'form-control']) !!}
-        </div>
-        <div class="form-group col-12 col-md-6 order-1">
-            <label @error('sampai_tgl') class="text-danger" @enderror>Sampai Tanggal @error('sampai_tgl') | {{ $message }}@enderror</label>
-            {!! Form::date('sampai_tgl', null, ['class' => 'form-control']) !!}
-        </div>
-    </div>
 
     {{-- @push('scripts')
         <script>

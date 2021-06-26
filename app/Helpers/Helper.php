@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Gaji;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
@@ -49,4 +50,16 @@ function getAvatar(){
     }
 
     return Auth::user()->pegawai->foto;
+}
+
+function getGolongan(){
+    $golongan = Gaji::pluck('golongan', 'golongan');
+    
+    return $golongan;
+}
+
+function getJabatan($golongan){
+    $golongan = Gaji::where('golongan', $golongan)->get()[0];
+
+    return $golongan->jabatan;
 }

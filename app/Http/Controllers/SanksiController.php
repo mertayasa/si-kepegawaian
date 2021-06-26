@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\SanksiDatatable;
+use App\Http\Requests\SanksiRequest;
+use App\Model\Pegawai;
 use App\Repositories\SanksiRepository;
 use App\Repositories\UserRepository;
 use App\Model\Sanksi;
@@ -39,20 +41,20 @@ class SanksiController extends Controller{
         return view('sanksi.create', compact('pegawai'));
     }
 
-    public function store(Request $request){
+    public function store(SanksiRequest $request){
         try{
             $data = $request->all();
             $base_64_foto = json_decode($request['surat_sanksi'], true);
             $upload_image = uploadFile($base_64_foto);
-            
+
             if($upload_image == 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
 
-            $data['surat_ket'] = $upload_image;
-            $data['pegawai_id'] = Auth::user()->pegawai->id;
-
-            // dd($data);
+            $pegawai = Pegawai::find($data['pegawai_id']);
+            $data['surat_sanksi'] = $upload_image;
+            $data['golongan'] = $pegawai->golongan;
+            $data['jabatan'] = getJabatan($pegawai->golongan);
 
             $this->sanksiRepo->store($data);
         }catch(Exception $e){
@@ -72,17 +74,20 @@ class SanksiController extends Controller{
         return view('sanksi.edit', compact('sanksi', 'pegawai'));
     }
 
-    public function update(Request $request, Sanksi $sanksi){
+    public function update(SanksiRequest $request, Sanksi $sanksi){
         try{
             $data = $request->all();
-            $base_64_foto = json_decode($request['foto'], true);
+            $base_64_foto = json_decode($request['surat_sanksi'], true);
             $upload_image = uploadFile($base_64_foto);
             
             if($upload_image == 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
 
-            $data['foto'] = $upload_image;
+            $pegawai = Pegawai::find($data['pegawai_id']);
+            $data['surat_sanksi'] = $upload_image;
+            $data['golongan'] = $pegawai->golongan;
+            $data['jabatan'] = getJabatan($pegawai->golongan);
 
             $sanksi->update($data);
         }catch(Exception $e){
