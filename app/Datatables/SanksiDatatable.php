@@ -21,7 +21,7 @@ class SanksiDatatable{
                     '</div>';
                 }
 
-                // return '<a href="'.route('sanksi.updateStatus',$sanksi->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-check"></i></a>';
+                return '<a href="'.asset('images/'.$sanksi->surat_sanksi).'" target="_blank" class="btn btn-primary" ><i class="menu-icon fa fa-eye"></i></a>';
             })->addIndexColumn()->rawColumns(['action', 'surat_sanksi'])->make(true);
     }
 

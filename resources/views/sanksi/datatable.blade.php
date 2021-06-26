@@ -12,9 +12,7 @@
                 <th><span style="display: inline-block; width: 150px;">Golongan</span></th>
                 <th><span style="display: inline-block; width: 150px;">Jabatan</span></th>
                 <th><span style="display: inline-block; width: 150px;">Keterangan</span></th>
-                @if(userRole() == 'admin')
-                    <th>Aksi</th>
-                @endif
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -39,11 +37,8 @@
                 {data: 'golongan', name: 'golongan'},
                 {data: 'jabatan', name: 'jabatan'},
                 {data: 'keterangan', name: 'keterangan'},
+                {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
-
-        @if(userRole() == 'admin')
-            column.push({data: 'action', name: 'action', orderable: false, searchable: false})
-        @endif
 
         table = $('#sanksiDatatable').DataTable({
             processing: true,
@@ -58,7 +53,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 5
+                    responsivePriority: 1, targets: 6
                 },
             ],
             language: {
