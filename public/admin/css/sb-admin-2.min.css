@@ -10658,6 +10658,12 @@ button.bg-dark:hover {
     text-align: center !important
 }
 
+.text-center img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
 @media (min-width:576px) {
     .text-sm-left {
         text-align: left !important
@@ -12110,7 +12116,8 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800);
+    /* background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800); */
+    background-image: url(../img/bg-login.jpg);
     background-position: center;
     background-size: cover
 }

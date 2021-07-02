@@ -13,6 +13,7 @@
                 <th>Umur</th>
                 <th>Jenis Kelamin</th>
                 <th>Golongan</th>
+                <th>Jabatan</th>
                 <th><span style="display: inline-block; width: 150px;">Alamat</span></th>
                 <th>Aksi</th>
             </tr>
@@ -46,6 +47,7 @@
                 {data: 'umur', name: 'umur'},
                 {data: 'jk', name: 'jk', orderable: false},
                 {data: 'golongan', name: 'golongan', orderable: false},
+                {data: 'jabatan', name: 'jabatan', orderable: false},
                 {data: 'alamat', name: 'alamat', orderable: false},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ],
@@ -55,7 +57,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 8
+                    responsivePriority: 1, targets: 9
                 },
             ],
             language: {

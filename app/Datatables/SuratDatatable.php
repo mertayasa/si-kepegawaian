@@ -18,6 +18,7 @@ class SuratDatatable{
             ->addColumn('action', function($surat){
                 $deleteUrl = "'".route('surat.destroy', $surat->id)."', 'suratDatatable'";
                 return  '<div class="btn-group">'.
+                    '<a href="'.asset('images/'.$surat->foto).'" target="_blank" class="btn btn-primary" ><i class="menu-icon fa fa-eye"></i> </a>'.
                     '<a href="'.route('surat.edit',$surat->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
                     '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
                 '</div>';

@@ -5,20 +5,26 @@
         {!! Form::text('pegawai_name', Auth::user()->, [$options]) !!}
     </div> --}}
 
-    <div class="form-group">
-        <label @error('no_surat') class="text-danger" @enderror>Nomor Surat @error('no_surat') | {{ $message }}@enderror</label>
-        {!! Form::text('no_surat', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        <label @error('tgl_surat') class="text-danger" @enderror>Tanggal Surat @error('tgl_surat') | {{ $message }}@enderror</label>
-        {!! Form::date('tgl_surat', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        <div class="col-6 p-0">
-            <label @error('foto') class="text-danger" @enderror>Foto @error('foto') | {{ $message }} @enderror</label>
-            {!! Form::file('foto', ['class' => 'd-block filepond', 'id' => 'foto']) !!}
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label @error('no_surat') class="text-danger" @enderror>Nomor Surat @error('no_surat') | {{ $message }}@enderror</label>
+                {!! Form::text('no_surat', null, ['class' => 'form-control']) !!}
+            </div>
+        
+            <div class="form-group">
+                <label @error('tgl_surat') class="text-danger" @enderror>Tanggal Surat @error('tgl_surat') | {{ $message }}@enderror</label>
+                {!! Form::date('tgl_surat', null, ['class' => 'form-control']) !!}
+            </div>
+        </div>
+    
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <div class="col-12 p-0">
+                    <label @error('foto') class="text-danger" @enderror>Foto @error('foto') | {{ $message }} @enderror</label>
+                    {!! Form::file('foto', ['class' => 'd-block filepond', 'id' => 'foto']) !!}
+                </div>
+            </div>
         </div>
     </div>
 

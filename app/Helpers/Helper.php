@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Gaji;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
@@ -37,4 +38,28 @@ function getGender($gender_code){
     $gener = $gender_code == 'L' ? 'Laki-Laki' : 'Perempuan';
 
     return $gener;
+}
+
+function formatPrice($value){
+    return 'Rp '. number_format($value,0,',','.');
+}
+
+function getAvatar(){
+    if(Auth::user()->level == 0){
+        return Auth::user()->admin->foto;
+    }
+
+    return Auth::user()->pegawai->foto;
+}
+
+function getGolongan(){
+    $golongan = Gaji::pluck('golongan', 'golongan');
+    
+    return $golongan;
+}
+
+function getJabatan($golongan){
+    $golongan = Gaji::where('golongan', $golongan)->get()[0];
+
+    return $golongan->jabatan;
 }

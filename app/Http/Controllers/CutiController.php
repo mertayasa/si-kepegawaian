@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\CutiDatatable;
+use App\Http\Requests\CutiRequest;
 use App\Model\Cuti;
 use App\Repositories\CutiRepository;
 use Exception;
@@ -36,7 +37,7 @@ class CutiController extends Controller
         return view('cuti.create');
     }
 
-    public function store(Request $request){
+    public function store(CutiRequest $request){
         try{
             $data = $request->all();
             $data['pegawai_id'] = Auth::user()->pegawai->id;
@@ -58,7 +59,7 @@ class CutiController extends Controller
         return view('cuti.edit', compact('cuti'));
     }
 
-    public function update(Request $request, Cuti $cuti){
+    public function update(CutiRequest $request, Cuti $cuti){
         try{
             $data = $request->all();
             $data['pegawai_id'] = Auth::user()->pegawai->id;

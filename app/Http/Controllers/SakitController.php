@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\SakitDatatable;
+use App\Http\Requests\SakitRequest;
 use App\Model\Sakit;
 use App\Repositories\SakitRepository;
 use App\Repositories\UserRepository;
@@ -39,7 +40,7 @@ class SakitController extends Controller{
         return view('sakit.create', compact('pegawai'));
     }
 
-    public function store(Request $request){
+    public function store(SakitRequest $request){
         try{
             $data = $request->all();
             $base_64_foto = json_decode($request['surat_ket'], true);
@@ -72,17 +73,19 @@ class SakitController extends Controller{
         return view('sakit.edit', compact('sakit', 'pegawai'));
     }
 
-    public function update(Request $request, Sakit $sakit){
+    public function update(SakitRequest $request, Sakit $sakit){
         try{
             $data = $request->all();
-            $base_64_foto = json_decode($request['foto'], true);
+            // dd($data);
+            $base_64_foto = json_decode($request['surat_ket'], true);
             $upload_image = uploadFile($base_64_foto);
             
             if($upload_image == 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
 
-            $data['foto'] = $upload_image;
+            $data['surat_ket'] = $upload_image;
+            $data['pegawai_id'] = $sakit->pegawai_id;
 
             $sakit->update($data);
         }catch(Exception $e){

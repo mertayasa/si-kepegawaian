@@ -31,4 +31,32 @@ class User extends Authenticatable
     public function admin(){
         return $this->hasOne(Admin::class, 'user_id');
     }
+
+    public function getFotoAttribute(){
+        return userRole() == 'admin' ? $this->admin->foto : $this->pegawai->foto;
+    }
+
+    public function getNoHpAttribute(){
+        return userRole() == 'admin' ? $this->admin->no_hp : $this->pegawai->no_hp;
+    }
+
+    public function getAlamatAttribute(){
+        return userRole() == 'admin' ? $this->admin->alamat : $this->pegawai->alamat;
+    }
+
+    public function getUserIdAttribute(){
+        return $this->id;
+    }
+
+    public function getUmurAttribute(){
+        return userRole() == 'admin' ? '' : $this->pegawai->umur;
+    }
+
+    public function getGolonganAttribute(){
+        return userRole() == 'admin' ? '' : $this->pegawai->golongan;
+    }
+
+    public function getJabatanAttribute(){
+        return userRole() == 'admin' ? '' : getJabatan($this->pegawai->golongan);
+    }
 }

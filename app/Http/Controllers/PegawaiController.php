@@ -58,6 +58,7 @@ class PegawaiController extends Controller{
             }
 
             $data['foto'] = $upload_image;
+            $data['jabatan'] = getJabatan($data['golongan']);
     
             $pegawai->user->update($data);
             $pegawai->update($data);
@@ -89,6 +90,7 @@ class PegawaiController extends Controller{
             $data['foto'] = $upload_image;
             $data['level'] = 1;
             $data['password'] = bcrypt($data['password']);
+            $data['jabatan'] = getJabatan($data['golongan']);
     
             $stored_user = $this->userRepo->store($data);
             $stored_user->pegawai()->create($data);

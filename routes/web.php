@@ -58,9 +58,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('create', 'SakitController@create')->name('create');
             Route::post('store', 'SakitController@store')->name('store');
             Route::delete('destroy/{sakit}', 'SakitController@destroy')->name('destroy');
-            Route::get('edit/{sakit}', 'SakitController@edit')->name('edit');
-            Route::patch('update/{sakit}', 'SakitController@update')->name('update');
         });
+        
+        Route::get('edit/{sakit}', 'SakitController@edit')->name('edit');
+        Route::patch('update/{sakit}', 'SakitController@update')->name('update');
 
     });
 
@@ -91,6 +92,19 @@ Route::group(['middleware' => 'auth'], function () {
             Route::patch('update/{cuti}', 'CutiController@update')->name('update');
         });
     });
+
+    Route::group(['prefix' => 'gaji','as'=>'gaji.', 'middleware' => 'role:admin'], function () {
+        Route::get('/', 'GajiController@index')->name('index');
+        Route::get('datatable', 'GajiController@datatable')->name('datatable');
+        Route::get('edit/{gaji}', 'GajiController@edit')->name('edit');
+        Route::get('update/{gaji}', 'GajiController@update')->name('update');
+    });
+
+    Route::group(['prefix' => 'profile','as'=>'profile.'], function () {
+        Route::get('edit/{user}', 'UserController@edit')->name('edit');
+        Route::patch('update/{user}', 'UserController@update')->name('update');
+    });
+
 
 });
 
