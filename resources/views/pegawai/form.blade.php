@@ -7,7 +7,7 @@
             <label @error('nama') class="text-danger" @enderror>Nama @error('nama') | {{ $message }}@enderror</label>
             {!! Form::text('nama', null, ['class' => 'form-control']) !!}
         </div>
-    
+
         <div class="form-group col-12 col-md-6">
             <label @error('username') class="text-danger" @enderror>Username @error('username') | {{ $message }}@enderror</label>
             {!! Form::text('username', null, ['class' => 'form-control']) !!}
@@ -31,7 +31,7 @@
             <label @error('umur') class="text-danger" @enderror>Umur @error('umur') | {{ $message }} @enderror</label>
             {!! Form::number('umur', null, ['class' => 'form-control']) !!}
         </div>
-    
+
         <div class="form-group col-12 col-md-6">
             <label>Jenis Kelamin</label>
             {!! Form::select('jk', ['L' => 'Laki-Laki', 'P' => 'Perempuan'], null, ['class' => 'form-control']) !!}
@@ -43,7 +43,7 @@
             <label @error('password') class="text-danger" @enderror>Password @error('password') | {{ $message }} @enderror</label>
             {!! Form::password('password', ['class' => 'form-control']) !!}
         </div>
-    
+
         <div class="form-group col-12 col-md-6">
             <label>Password Confirmation</label>
             {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
@@ -106,9 +106,9 @@
                 @endif
 
                 if(url.pathname.includes('tambah')){
-                    
+
                 }else{
-                    
+
                 }
 
                 FilePond.create(

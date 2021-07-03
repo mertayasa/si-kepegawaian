@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +22,13 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'profile','as'=>'profile.'], function () {
+        Route::get('edit','Usercontroller@edit')->name('edit');
+        Route::patch('update/{id}', [Usercontroller::class, 'updateProfile'])->name('update');
+    });
+
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    
+
     Route::group(['prefix' => 'pegawai','as'=>'pegawai.', 'middleware' => 'role:admin'], function () {
         Route::get('/', 'PegawaiController@index')->name('index');
         Route::get('datatable', 'PegawaiController@datatable')->name('datatable');
@@ -36,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'surat','as'=>'surat.'], function () {
         Route::get('/', 'SuratController@index')->name('index');
         Route::get('datatable', 'SuratController@datatable')->name('datatable');
-        
+
         Route::get('create', 'SuratController@create')->name('create');
         Route::post('store', 'SuratController@store')->name('store');
         Route::get('edit/{surat}', 'SuratController@edit')->name('edit');

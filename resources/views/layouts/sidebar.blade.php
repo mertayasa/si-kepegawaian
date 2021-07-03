@@ -27,7 +27,6 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
 
-
         <li class="nav-item">
             <a class="nav-link" href="{{ route ('pegawai.index') }}">
                 <i class="fas fa-table"></i>
@@ -43,7 +42,7 @@
                     <a class="collapse-item" href={{ route ('pegawai.index') }}>Data Pegawai</a>
                 </div>
             </div>
-        </li>  
+        </li>
     @endif
 
 

@@ -42,13 +42,13 @@ class UserController extends Controller
 
             $base_64_foto = json_decode($request['foto'], true);
             $upload_image = uploadFile($base_64_foto);
-            
+
             if($upload_image == 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
 
             $data['foto'] = $upload_image;
-            
+
             $update_user = $user->update($data);
 
             if(userRole() == 'admin'){
