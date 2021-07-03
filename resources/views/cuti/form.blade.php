@@ -1,25 +1,29 @@
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="form-group col-12">
-                <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
+                <label>Nama Pegawai</label>
                 {!! Form::text('pegawai_id', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
+                <small class="text-danger">@error('pegawai_id') {{ $message }}@enderror</small>
             </div>
         
             <div class="form-group col-12">
-                <label @error('dari_tgl') class="text-danger" @enderror>Dari Tanggal @error('dari_tgl') | {{ $message }}@enderror</label>
+                <label>Dari Tanggal</label>
                 {!! Form::date('dari_tgl', null, ['class' => 'form-control']) !!}
+                <small class="text-danger">@error('dari_tgl') {{ $message }}@enderror</small>
             </div>
             <div class="form-group col-12 ">
-                <label @error('sampai_tgl') class="text-danger" @enderror>Sampai Tanggal @error('sampai_tgl') | {{ $message }}@enderror</label>
+                <label>Sampai Tanggal</label>
                 {!! Form::date('sampai_tgl', null, ['class' => 'form-control']) !!}
+                <small class="text-danger">@error('sampai_tgl') {{ $message }}@enderror</small>
             </div>
         </div>
 
         <div class="col-12 col-md-6">
             <div class="row">
                 <div class="form-group col-12">
-                    <label @error('alasan') class="text-danger" @enderror>Alasan @error('alasan') | {{ $message }} @enderror</label>
+                    <label>Alasan</label>
                     {!! Form::textarea('alasan', null, ['class' => 'form-control']) !!}
+                    <small class="text-danger">@error('alasan') {{ $message }}@enderror</small>
                 </div>
             </div>
         </div>

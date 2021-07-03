@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\CutiDatatable;
+use App\DataTables\NewCutiDatatable;
 use App\Http\Requests\CutiRequest;
 use App\Model\Cuti;
 use App\Repositories\CutiRepository;
@@ -30,7 +31,7 @@ class CutiController extends Controller
             $cuti = $this->cutiRepo->getAllData()->where('pegawai_id', Auth::user()->pegawai->id);
         }
 
-        return CutiDatatable::set($cuti);
+        return NewCutiDatatable::set($cuti);
     }
 
     public function create(){

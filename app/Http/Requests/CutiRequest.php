@@ -12,7 +12,7 @@ class CutiRequest extends FormRequest{
 
     public function rules(){
         $rules = [
-            'dari_tgl' => 'required|before_or_equal:now',
+            'dari_tgl' => 'required',
             'sampai_tgl' => 'required|after_or_equal:dari_tgl',
             'alasan' => 'required',
         ];
