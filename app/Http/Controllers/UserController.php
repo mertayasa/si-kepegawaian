@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
+use App\Model\Admin;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class UserController extends Controller
     }
 
     public function edit(User $user){
+        // dd($user);
         return view('profile.edit', compact('user'));
     }
 
@@ -52,7 +54,7 @@ class UserController extends Controller
             $update_user = $user->update($data);
 
             if(userRole() == 'admin'){
-                $user->admin->update($data);
+                Admin::updateOrCreate(['user_id' => $user->id], $data);
             }else{
                 $user->pegawai->update($data);
             }

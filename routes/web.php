@@ -24,7 +24,7 @@ Auth::routes(['register' => false]);
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'profile','as'=>'profile.'], function () {
         Route::get('edit','Usercontroller@edit')->name('edit');
-        Route::patch('update/{id}', [Usercontroller::class, 'updateProfile'])->name('update');
+        Route::patch('update/{user}', [Usercontroller::class, 'update'])->name('update');
     });
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

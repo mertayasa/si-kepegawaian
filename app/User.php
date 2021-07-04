@@ -33,15 +33,15 @@ class User extends Authenticatable
     }
 
     public function getFotoAttribute(){
-        return userRole() == 'admin' ? $this->admin->foto : $this->pegawai->foto;
+        return userRole() == 'admin' ? $this->admin->foto ?? '' : $this->pegawai->foto;
     }
 
     public function getNoHpAttribute(){
-        return userRole() == 'admin' ? $this->admin->no_hp : $this->pegawai->no_hp;
+        return userRole() == 'admin' ? $this->admin->no_hp ?? '-' : $this->pegawai->no_hp;
     }
 
     public function getAlamatAttribute(){
-        return userRole() == 'admin' ? $this->admin->alamat : $this->pegawai->alamat;
+        return userRole() == 'admin' ? $this->admin->alamat ?? '-' : $this->pegawai->alamat;
     }
 
     public function getUserIdAttribute(){
