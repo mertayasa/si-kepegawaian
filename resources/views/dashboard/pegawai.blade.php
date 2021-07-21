@@ -15,8 +15,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Jumlah Sanksi</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Sanksi</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['sanksi']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-exclamation-circle fa-2x text-gray-300"></i>
@@ -32,8 +32,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Hari Cuti Bulan {{\Carbon\Carbon::now()->format('M Y')}}</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Akumulasi Hari Cuti (Diterima)</div>
+                            {{-- <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Hari Cuti Bulan {{\Carbon\Carbon::now()->format('M Y')}}</div> --}}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['cuti']}} Hari </div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-business-time fa-2x text-gray-300"></i>
@@ -49,8 +50,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Jumlah Hari Sakit Bulan {{\Carbon\Carbon::now()->format('M Y')}}</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Sakit</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['sakit']}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-virus fa-2x text-gray-300"></i>

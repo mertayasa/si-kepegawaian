@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Cuti;
+use App\Model\Sakit;
+use App\Model\Sanksi;
+use App\Model\Surat;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,17 +18,50 @@ class DashboardController extends Controller
             return view('dashboard.admin', compact('data'));
         }
         
-        $data = $this->getDataAdmin();
+        $data = $this->getDataPegawai();
         return view('dashboard.pegawai', compact('data'));
     }
 
     public function getDataAdmin(){
-        $data = [];
+        $pegawai_count = User::where('level', 1)->count();
+        $surat_count = Surat::count();
+        $sanksi_count = Sanksi::count();
+        $cuti_count = 0;
+
+        $cuti = Cuti::where('status', 1)->get();
+        foreach($cuti as $cuti){
+            $cuti_count = $cuti_count + $cuti->total_hari;
+        }
+
+        $data = [
+            'pegawai' => $pegawai_count,
+            'surat' => $surat_count,
+            'sanksi' => $sanksi_count,
+            'cuti' => $cuti_count,
+        ];
+
+        // dd($data);
+
         return $data;
     }
 
     public function getDataPegawai(){
-        $data = [];
+        $sanksi_count = Sanksi::where('pegawai_id', Auth::user()->pegawai->id)->count();
+        $sakit_count = Sakit::where('pegawai_id', Auth::user()->pegawai->id)->count();
+        $cuti_count = 0;
+
+        $cuti = Cuti::where('status', 1)->where('pegawai_id', Auth::user()->pegawai->id)->get();
+
+        foreach($cuti as $cuti){
+            $cuti_count = $cuti_count + $cuti->total_hari;
+        }
+
+        $data = [
+            'sanksi' => $sanksi_count,
+            'cuti' => $cuti_count,
+            'sakit' => $sakit_count,
+        ];
+
         return $data;
     }
 }
