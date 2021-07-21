@@ -17,6 +17,7 @@
   <!-- Custom styles for this template-->
   {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
   <link href="{{asset('css/app.css')}}" rel="stylesheet">
+  <link rel="shortcut icon" type="image/jpg" href="{{asset('favicon.ico')}}"/>
   <link href="{{asset('admin/css/sb-admin-2.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('vendor/sweetalert2/dist/sweetalert2.css')}}">
 
@@ -78,14 +79,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Keluar dari aplikasi?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Pilih "Logout" di bawah jika anda ingin keluar dari aplikasi.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
           <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
