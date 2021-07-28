@@ -33,11 +33,13 @@
                 {!! Form::text('jabatan', null, ['class' => 'form-control mb-3', 'disabled' => true, 'id' => 'inputJabatan']) !!}
 
                 <label class="text-secondary">Gaji</label>
-                {!! Form::number('gaji', null, ['class' => 'form-control', 'id' => 'inputGaji']) !!}
+                {!! Form::number('gaji', null, ['class' => 'form-control', 'id' => 'inputGaji', 'onkeyup' => 'validateGaji(this.value)']) !!}
+                <div class="pt-2"></div>
+                <span class="text-danger warning-gaji d-none pt-2">Gaji tidak boleh lebih rendah dari 1jt (1,000,000)</span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary" onclick="submitData()">Update</button>
+                <button type="button" class="btn btn-primary btn-update" onclick="submitData()">Update</button>
             </div>
             </div>
         </div>
@@ -45,6 +47,23 @@
 @endsection
 @push('scripts')
     <script> 
+        function validateGaji(gaji){
+            const warningSpan = document.getElementsByClassName('warning-gaji')[0]
+            const btnUpdate = document.getElementsByClassName('btn-update')[0]
+            
+            if(parseInt(gaji) < 1000000){
+                btnUpdate.classList.remove('btn-primary')
+                btnUpdate.classList.add('btn-secondary')
+                btnUpdate.setAttribute('disabled', true)
+                return warningSpan.classList.remove('d-none')
+            }
+
+            btnUpdate.classList.add('btn-primary')
+            btnUpdate.classList.remove('btn-secondary')
+            btnUpdate.removeAttribute('disabled')
+            return warningSpan.classList.add('d-none')
+        }
+        
         function populateModal(element){
             const gaji = document.getElementById('inputGaji').value = element.getAttribute('data-gaji')
             const golongan = document.getElementById('inputGolongan').value = element.getAttribute('data-golongan')
