@@ -13,7 +13,7 @@ class SakitRequest extends FormRequest{
     public function rules(){
         $rules = [
             'surat_ket' => 'required',
-            'tanggal' => 'required|before_or_equal:now',
+            'tanggal' => 'required|after_or_equal:now',
             'alasan' => 'required'
         ];
         
