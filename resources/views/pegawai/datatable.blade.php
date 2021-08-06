@@ -51,7 +51,7 @@
                 // {data: 'jabatan', name: 'jabatan', orderable: false},
                 {data: 'alamat', name: 'alamat', orderable: false},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
-                {data: 'created_at', name: 'created_at'}
+                {data: 'created_at', name: 'created_at', visible:false}
             ],
             columnDefs: [
                 {
