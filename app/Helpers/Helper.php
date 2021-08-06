@@ -58,8 +58,8 @@ function getGolongan(){
     return $golongan;
 }
 
-function getJabatan($golongan){
-    $golongan = Gaji::where('golongan', $golongan)->get()[0];
+// function getJabatan($golongan){
+//     $golongan = Gaji::where('golongan', $golongan)->get()[0];
 
-    return $golongan->jabatan;
-}
+//     return $golongan->jabatan;
+// }
