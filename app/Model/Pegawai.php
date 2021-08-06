@@ -14,7 +14,8 @@ class Pegawai extends Model{
         'umur',
         'jk',
         'foto',
-        'golongan'
+        'golongan',
+        'nip'
     ];
 
     public $with = [

@@ -9,8 +9,8 @@
         </div>
 
         <div class="form-group col-12 col-md-6">
-            <label @error('username') class="text-danger" @enderror>Username @error('username') | {{ $message }}@enderror</label>
-            {!! Form::text('username', null, ['class' => 'form-control']) !!}
+            <label @error('nip') class="text-danger" @enderror>NIP @error('nip') | {{ $message }}@enderror</label>
+            {!! Form::text('nip', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 
@@ -21,8 +21,8 @@
         </div>
 
         <div class="form-group col-12 col-md-6">
-            <label @error('no_hp') class="text-danger" @enderror>No. Telepon @error('no_hp') | {{ $message }} @enderror</label>
-            {!! Form::text('no_hp', null, ['class' => 'form-control']) !!}
+            <label @error('username') class="text-danger" @enderror>Username @error('username') | {{ $message }}@enderror</label>
+            {!! Form::text('username', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 
@@ -33,8 +33,21 @@
         </div>
 
         <div class="form-group col-12 col-md-6">
+            <label @error('no_hp') class="text-danger" @enderror>No. Telepon @error('no_hp') | {{ $message }} @enderror</label>
+            {!! Form::text('no_hp', null, ['class' => 'form-control']) !!}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="form-group col-12 col-md-6">
             <label>Jenis Kelamin</label>
             {!! Form::select('jk', ['L' => 'Laki-Laki', 'P' => 'Perempuan'], null, ['class' => 'form-control']) !!}
+        </div>
+
+        <div class="form-group col-12 col-md-6">
+            {{-- [1 => 'Golongan 1', 2 => 'Golongan 2', 3 => 'Golongan 3', 4 => 'Golongan 4'] --}}
+            <label @error('golongan') class="text-danger" @enderror>Golongan @error('golongan') | {{ $message }} @enderror</label>
+            {!! Form::select('golongan', getGolongan(), null, ['class' => 'form-control']) !!}
         </div>
     </div>
 
@@ -51,14 +64,6 @@
     </div>
 
     <div class="row mt-3">
-        <div class="form-group col-12 col-md-6">
-            {{-- [1 => 'Golongan 1', 2 => 'Golongan 2', 3 => 'Golongan 3', 4 => 'Golongan 4'] --}}
-            <label @error('golongan') class="text-danger" @enderror>Golongan @error('golongan') | {{ $message }} @enderror</label>
-            {!! Form::select('golongan', getGolongan(), null, ['class' => 'form-control']) !!}
-        </div>
-    </div>
-
-    <div class="row">
         <div class="form-group col-12 col-md-6">
             <label @error('alamat') class="text-danger" @enderror>Alamat @error('alamat') | {{ $message }} @enderror</label>
             {!! Form::textarea('alamat', null, ['class' => 'form-control']) !!}

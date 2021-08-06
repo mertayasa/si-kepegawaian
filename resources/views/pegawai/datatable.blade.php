@@ -16,6 +16,7 @@
                 <th>Jabatan</th>
                 <th><span style="display: inline-block; width: 150px;">Alamat</span></th>
                 <th>Aksi</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -38,7 +39,7 @@
             serverSide: true,
             responsive: true,
             ajax: url,
-            
+            order: [10, 'DESC'],
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
                 {data: 'foto', name: 'foto', orderable: false, searchable: false},
@@ -49,7 +50,8 @@
                 {data: 'golongan', name: 'golongan', orderable: false},
                 {data: 'jabatan', name: 'jabatan', orderable: false},
                 {data: 'alamat', name: 'alamat', orderable: false},
-                {data: 'action', name: 'action', orderable: false, searchable: false}
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+                {data: 'created_at', name: 'created_at'}
             ],
             columnDefs: [
                 {

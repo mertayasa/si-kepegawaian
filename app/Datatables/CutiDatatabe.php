@@ -28,13 +28,16 @@ class CutiDatatable{
             })
             ->addColumn('action', function($cuti){
                 if(userRole() == 'pegawai'){
-                    if($cuti->status != 1){
+                    if($cuti->status == 0){
                         $deleteUrl = "'".route('cuti.destroy', $cuti->id)."', 'cutiDatatable'";
                         return  '<div class="btn-group">'.
                             '<a href="'.route('cuti.edit',$cuti->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
                             '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
                         '</div>';
                     }else{
+                        if($cuti->status == 2){
+                            return '<button class="btn btn-danger btn-sm" style="pointer-events: none;"> <i class="menu-icon fa fa-times"></i> Ditolak</button>';
+                        }
                         return '<button class="btn btn-primary btn-sm" style="pointer-events: none;"> <i class="menu-icon fa fa-check"></i> Diterima</button>';
                     }
                 }

@@ -14,11 +14,12 @@ class SakitDatatable{
             })
             ->addColumn('action', function($sakit){
                 // if(userRole() == 'pegawai'){
+                    $hide_admin = userRole() == 'admin' ? 'd-none' : '';
                     $deleteUrl = "'".route('sakit.destroy', $sakit->id)."', 'sakitDatatable'";
                     return  '<div class="btn-group">'.
                         '<a href="'.asset('images/'.$sakit->surat_ket).'" target="_blank" class="btn btn-primary" ><i class="menu-icon fa fa-eye"></i> </a>'.
-                        '<a href="'.route('sakit.edit',$sakit->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
-                        '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
+                        '<a href="'.route('sakit.edit',$sakit->id).'" class="btn btn-warning '. $hide_admin .'" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
+                        '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger '. $hide_admin .'" ><i class="menu-icon fa fa-trash"></i></a>'.
                     '</div>';
                 // }
             })->addIndexColumn()->rawColumns(['action', 'surat_ket'])->make(true);

@@ -8,7 +8,7 @@
             <tr>
                 <th>No</th>
                 <th>Golongan</th>
-                <th>Jabatan</th>
+                {{-- <th>Jabatan</th> --}}
                 <th>Gaji</th>
                 <th>Aksi</th>
             </tr>
@@ -38,7 +38,7 @@
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
                 {data: 'golongan', name: 'golongan'},
-                {data: 'jabatan', name: 'jabatan'},
+                // {data: 'jabatan', name: 'jabatan'},
                 {data: 'gaji', name: 'gaji'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ],
@@ -48,7 +48,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 4
+                    responsivePriority: 1, targets: 3
                 },
             ],
             language: {
