@@ -10,7 +10,7 @@
                 <th>Surat Keterangan</th>
                 <th><span style="display: inline-block; width: 150px;">Pegawai</span></th>
                 <th><span style="display: inline-block; width: 150px;">Golongan</span></th>
-                <th><span style="display: inline-block; width: 150px;">Jabatan</span></th>
+                {{-- <th><span style="display: inline-block; width: 150px;">Jabatan</span></th> --}}
                 <th><span style="display: inline-block; width: 150px;">Keterangan</span></th>
                 <th>Aksi</th>
             </tr>
@@ -35,7 +35,7 @@
                 {data: 'surat_sanksi', name: 'surat_sanksi'},
                 {data: 'pegawai.user.nama', name: 'pegawai.user.nama'},
                 {data: 'golongan', name: 'golongan'},
-                {data: 'jabatan', name: 'jabatan'},
+                // {data: 'jabatan', name: 'jabatan'},
                 {data: 'keterangan', name: 'keterangan'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
@@ -53,7 +53,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 6
+                    responsivePriority: 1, targets: 5
                 },
             ],
             language: {

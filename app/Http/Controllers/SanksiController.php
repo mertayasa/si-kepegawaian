@@ -54,7 +54,8 @@ class SanksiController extends Controller{
             $pegawai = Pegawai::find($data['pegawai_id']);
             $data['surat_sanksi'] = $upload_image;
             $data['golongan'] = $pegawai->golongan;
-            $data['jabatan'] = getJabatan($pegawai->golongan);
+            $data['jabatan'] = '-';
+            // $data['jabatan'] = getJabatan($pegawai->golongan);
 
             $this->sanksiRepo->store($data);
         }catch(Exception $e){
@@ -87,7 +88,8 @@ class SanksiController extends Controller{
             $pegawai = Pegawai::find($data['pegawai_id']);
             $data['surat_sanksi'] = $upload_image;
             $data['golongan'] = $pegawai->golongan;
-            $data['jabatan'] = getJabatan($pegawai->golongan);
+            $data['jabatan'] = '-';
+            // $data['jabatan'] = getJabatan($pegawai->golongan);
 
             $sanksi->update($data);
         }catch(Exception $e){

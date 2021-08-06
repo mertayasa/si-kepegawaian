@@ -56,7 +56,7 @@ class User extends Authenticatable
         return userRole() == 'admin' ? '' : $this->pegawai->golongan;
     }
 
-    public function getJabatanAttribute(){
-        return userRole() == 'admin' ? '' : getJabatan($this->pegawai->golongan);
-    }
+    // public function getJabatanAttribute(){
+    //     return userRole() == 'admin' ? '' : getJabatan($this->pegawai->golongan);
+    // }
 }
