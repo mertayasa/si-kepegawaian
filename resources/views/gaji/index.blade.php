@@ -29,8 +29,8 @@
                 <label class="text-secondary">Golongan</label>
                 {!! Form::text('golongan', null, ['class' => 'form-control mb-3', 'disabled' => true, 'id' => 'inputGolongan']) !!}
 
-                <label class="text-secondary">Jabatan</label>
-                {!! Form::text('jabatan', null, ['class' => 'form-control mb-3', 'disabled' => true, 'id' => 'inputJabatan']) !!}
+                <label class="text-secondary d-none">Jabatan</label>
+                {!! Form::text('jabatan', null, ['class' => 'form-control d-none mb-3', 'disabled' => true, 'id' => 'inputJabatan']) !!}
 
                 <label class="text-secondary">Gaji</label>
                 {!! Form::number('gaji', null, ['class' => 'form-control', 'id' => 'inputGaji', 'onkeyup' => 'validateGaji(this.value)']) !!}
