@@ -9,11 +9,11 @@
                 <th>No</th>
                 <th>Foto</th>
                 <th><span style="display: inline-block; width: 150px;">Nama</span></th>
+                <th>NIP</th>
+                <th>Golongan</th>
                 <th>No.Telp</th>
                 <th>Umur</th>
                 <th>Jenis Kelamin</th>
-                <th>Golongan</th>
-                {{-- <th>Jabatan</th> --}}
                 <th><span style="display: inline-block; width: 150px;">Alamat</span></th>
                 <th>Aksi</th>
                 <th></th>
@@ -39,16 +39,16 @@
             serverSide: true,
             responsive: true,
             ajax: url,
-            order: [9, 'DESC'],
+            order: [10, 'DESC'],
             columns: [
                 {data: 'DT_RowIndex', name: 'no',orderable: false, searchable: false},
                 {data: 'foto', name: 'foto', orderable: false, searchable: false},
                 {data: 'user.nama', name: 'user.nama', orderable: false},
+                {data: 'nip', name: 'nip', orderable: false},
+                {data: 'golongan', name: 'golongan', orderable: false},
                 {data: 'no_hp', name: 'no_hp', orderable: false},
                 {data: 'umur', name: 'umur'},
                 {data: 'jk', name: 'jk', orderable: false},
-                {data: 'golongan', name: 'golongan', orderable: false},
-                // {data: 'jabatan', name: 'jabatan', orderable: false},
                 {data: 'alamat', name: 'alamat', orderable: false},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
                 {data: 'created_at', name: 'created_at', visible:false}
@@ -59,7 +59,7 @@
                     className: 'align-middle'
                 },
                 { 
-                    responsivePriority: 1, targets: 8
+                    responsivePriority: 1, targets: 9
                 },
             ],
             language: {
