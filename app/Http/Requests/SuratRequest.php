@@ -11,9 +11,11 @@ class SuratRequest extends FormRequest{
     }
 
     public function rules(){
+        $todayDate = date('m/d/Y');
+
         $rules = [
             'no_surat' => 'required','unique:surat,no_surat,'.$this->no_surat,
-            'tgl_surat' => 'required|after_or_equal:now',
+            'tgl_surat' => 'required|after_or_equal:'.$todayDate,
             'foto' => 'required',
         ];
 
