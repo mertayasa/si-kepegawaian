@@ -11,9 +11,11 @@ class SakitRequest extends FormRequest{
     }
 
     public function rules(){
+        $todayDate = date('m/d/Y');
+
         $rules = [
             'surat_ket' => 'required',
-            'tanggal' => 'required|after_or_equal:now',
+            'tanggal' => 'required|after_or_equal:'.$todayDate,
             'alasan' => 'required'
         ];
         
