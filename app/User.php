@@ -56,6 +56,10 @@ class User extends Authenticatable
         return userRole() == 'admin' ? '' : $this->pegawai->golongan;
     }
 
+    public function getJumlahGajiAttribute(){
+        return userRole() == 'admin' ? '' : formatPrice($this->pegawai->gaji->gaji);
+    }
+
     // public function getJabatanAttribute(){
     //     return userRole() == 'admin' ? '' : getJabatan($this->pegawai->golongan);
     // }

@@ -28,7 +28,7 @@ class UserController extends Controller
     }
 
     public function edit(User $user){
-        // dd($user);
+        // dd($user->pegawai->jumlah_gaji);
         return view('profile.edit', compact('user'));
     }
 

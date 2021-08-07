@@ -44,10 +44,10 @@
         {!! Form::text('golongan', null, ['class' => 'form-control', 'disabled' => true]) !!}
     </div>
 
-    {{-- <div class="form-group col-12 col-md-6">
-        <label @error('jabatan') class="text-danger" @enderror>Jabatan @error('jabatan') | {{ $message }} @enderror</label>
-        {!! Form::text('jabatan', null, ['class' => 'form-control', 'disabled' => true]) !!}
-    </div> --}}
+    <div class="form-group col-12 col-md-6">
+        <label @error('jumlah_gaji') class="text-danger" @enderror>Gaji @error('jumlah_gaji') | {{ $message }} @enderror</label>
+        {!! Form::text('jumlah_gaji', null, ['class' => 'form-control', 'disabled' => true]) !!}
+    </div>
 </div>
 
 <div class="row">

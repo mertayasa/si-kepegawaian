@@ -38,6 +38,14 @@ class Pegawai extends Model{
         return $this->user->nama;
     }
 
+    public function getGolonganAttribute(){
+        return $this->gaji->golongan;
+    }
+
+    // public function getJumlahGajiAttribute(){
+    //     return $this->gaji->gaji;
+    // }
+
     public function getUsernameAttribute(){
         return $this->user->username;
     }
