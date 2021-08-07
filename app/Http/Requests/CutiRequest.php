@@ -11,8 +11,9 @@ class CutiRequest extends FormRequest{
     }
 
     public function rules(){
+        $todayDate = date('m/d/Y');
         $rules = [
-            'dari_tgl' => 'required',
+            'dari_tgl' => 'required|after_or_equal:'.$todayDate,
             'sampai_tgl' => 'required|after_or_equal:dari_tgl',
             'alasan' => 'required',
         ];

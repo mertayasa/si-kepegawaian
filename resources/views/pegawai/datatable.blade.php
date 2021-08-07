@@ -45,7 +45,7 @@
                 {data: 'foto', name: 'foto', orderable: false, searchable: false},
                 {data: 'user.nama', name: 'user.nama', orderable: false},
                 {data: 'nip', name: 'nip', orderable: false},
-                {data: 'golongan', name: 'golongan', orderable: false},
+                {data: 'gaji.golongan', name: 'gaji.golongan', orderable: false},
                 {data: 'no_hp', name: 'no_hp', orderable: false},
                 {data: 'umur', name: 'umur'},
                 {data: 'jk', name: 'jk', orderable: false},

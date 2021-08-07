@@ -78,6 +78,7 @@ class PegawaiController extends Controller{
 
     public function simpan(PegawaiRequest $request){
         
+        $user_id = 0;
         try{
             $data = $request->all();
             $base_64_foto = json_decode($request['foto'], true);
@@ -93,9 +94,11 @@ class PegawaiController extends Controller{
             // $data['jabatan'] = getJabatan($data['golongan']);
     
             $stored_user = $this->userRepo->store($data);
+            $user_id = $stored_user->id;
             $stored_user->pegawai()->create($data);
 
         }catch(Exception $e){
+            User::find($user_id)->delete();
             Log::info($e->getMessage());
             return redirect()->back()->withInput()->with('error', 'Gagal menambahkan pegawai');
         }

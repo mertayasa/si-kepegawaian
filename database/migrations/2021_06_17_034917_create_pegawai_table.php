@@ -20,7 +20,9 @@ class CreatePegawaiTable extends Migration
             $table->string('umur', 150)->nullable();
             $table->string('jk', 10)->nullable();
             $table->string('foto')->nullable();
-            $table->string('golongan', 150)->nullable();
+            $table->unsignedBigInteger('id_gaji');
+            $table->foreign('id_gaji')->references('id')->on('gaji')->onDelete('cascade')->onUpdate('cascade');
+            
             $table->timestamps();
         });
     }

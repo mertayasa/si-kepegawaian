@@ -7,18 +7,21 @@ use Illuminate\Support\Facades\Hash;
 class AdminSeeder extends Seeder{
 
     public function run(){
-        $user = User::create([
-            'nama' => 'admin',
-            'username' => 'admin'.rand(1000, 9999),
-            'email' => rand().'admin@demo.com',
-            'password' => Hash::make('asdasdasd'),
-            'level' => 0
-        ]);
+        $check_user = User::where('username', 'admin')->get();
+        if($check_user->count() < 1){
+            $user = User::create([
+                'nama' => 'admin',
+                'username' => 'admin',
+                'email' => rand().'admin@demo.com',
+                'password' => Hash::make('asdasdasd'),
+                'level' => 0
+            ]);
+            $initial_admin = [
+                'alamat' => 'alamat',
+                'no_hp' => '0819341298',
+            ];
+            $user->admin()->create($initial_admin);
+        }
 
-        $initial_admin = [
-            'alamat' => 'alamat',
-            'no_hp' => '0819341298',
-        ];
-        $user->admin()->create($initial_admin);
     }
 }

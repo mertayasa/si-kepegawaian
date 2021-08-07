@@ -14,7 +14,7 @@ class AddNipToPegawaiTable extends Migration
     public function up()
     {
         Schema::table('pegawai', function (Blueprint $table) {
-            $table->string('nip')->default(0);
+            $table->string('nip', 18)->default(0);
         });
     }
 

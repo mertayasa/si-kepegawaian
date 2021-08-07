@@ -14,16 +14,20 @@ class Pegawai extends Model{
         'umur',
         'jk',
         'foto',
-        'golongan',
+        'id_gaji',
         'nip'
     ];
 
     public $with = [
-        'user'
+        'user', 'gaji'
     ];
 
     public function user(){
         return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function gaji(){
+        return $this->belongsTo('App\Model\Gaji', 'id_gaji');
     }
 
     public function getEmailAttribute(){

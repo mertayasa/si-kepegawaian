@@ -47,7 +47,7 @@
         <div class="form-group col-12 col-md-6">
             {{-- [1 => 'Golongan 1', 2 => 'Golongan 2', 3 => 'Golongan 3', 4 => 'Golongan 4'] --}}
             <label @error('golongan') class="text-danger" @enderror>Golongan @error('golongan') | {{ $message }} @enderror</label>
-            {!! Form::select('golongan', getGolongan(), null, ['class' => 'form-control']) !!}
+            {!! Form::select('id_gaji', getGolongan(), null, ['class' => 'form-control']) !!}
         </div>
     </div>
 

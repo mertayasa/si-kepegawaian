@@ -17,7 +17,7 @@ class PegawaiRequest extends FormRequest{
             'no_hp' => 'required|numeric|digits_between:10,15',
             'umur' => 'required|numeric|min:17|max:65',
             'jk' => 'required',
-            'golongan' => 'required'
+            'id_gaji' => 'required'
         ];
         // 'golongan' => 'required|numeric|digits_between:1,4'
         

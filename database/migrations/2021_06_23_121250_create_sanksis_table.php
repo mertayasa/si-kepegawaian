@@ -17,7 +17,7 @@ class CreateSanksisTable extends Migration
             $table->id();
             $table->unsignedInteger('pegawai_id')->nullable();
             $table->text('golongan');
-            $table->text('jabatan');
+            // $table->text('jabatan');
             $table->text('keterangan');
             $table->text('surat_sanksi');
             $table->timestamps();

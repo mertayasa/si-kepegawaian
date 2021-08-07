@@ -53,8 +53,9 @@ class SanksiController extends Controller{
 
             $pegawai = Pegawai::find($data['pegawai_id']);
             $data['surat_sanksi'] = $upload_image;
-            $data['golongan'] = $pegawai->golongan;
-            $data['jabatan'] = '-';
+            $data['golongan'] = $pegawai->gaji->golongan;
+            // $data['golongan'] = $pegawai->golongan;
+            // $data['jabatan'] = '-';
             // $data['jabatan'] = getJabatan($pegawai->golongan);
 
             $this->sanksiRepo->store($data);
@@ -84,11 +85,12 @@ class SanksiController extends Controller{
             if($upload_image == 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
+            
 
             $pegawai = Pegawai::find($data['pegawai_id']);
             $data['surat_sanksi'] = $upload_image;
-            $data['golongan'] = $pegawai->golongan;
-            $data['jabatan'] = '-';
+            $data['golongan'] = $pegawai->gaji->golongan;
+            // $data['jabatan'] = '-';
             // $data['jabatan'] = getJabatan($pegawai->golongan);
 
             $sanksi->update($data);

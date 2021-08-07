@@ -53,7 +53,7 @@ function getAvatar(){
 }
 
 function getGolongan(){
-    $golongan = Gaji::pluck('golongan', 'golongan');
+    $golongan = Gaji::pluck('golongan', 'id');
     
     return $golongan;
 }
