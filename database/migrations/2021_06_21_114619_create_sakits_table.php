@@ -15,13 +15,13 @@ class CreateSakitsTable extends Migration
     {
         Schema::create('sakit', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('pegawai_id')->nullable();
+            $table->string('pegawai_nip')->nullable();
             $table->text('surat_ket');
             $table->date('tanggal');
             $table->text('alasan');
             $table->timestamps();
 
-            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('pegawai_nip')->references('nip')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -9,13 +9,13 @@ class Surat extends Model{
     public $table = 'surat';
 
     protected $fillable = [
-        // 'pegawai_id',
+        // 'pegawai_nip',
         'no_surat',
         'tgl_surat',
         'foto'
     ];
 
     // public function pegawai(){
-    //     return $this->belongsTo(Pegawai::class, 'pegawai_id');
+    //     return $this->belongsTo(Pegawai::class, 'pegawai_nip');
     // }
 }

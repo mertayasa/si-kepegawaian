@@ -1,8 +1,8 @@
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="form-group col-12 ">
-                <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
-                {!! Form::select('pegawai_id', $pegawai, null, ['class' => 'form-control']) !!}
+                <label @error('pegawai_nip') class="text-danger" @enderror>Nama Pegawai @error('pegawai_nip') | {{ $message }}@enderror</label>
+                {!! Form::select('pegawai_nip', $pegawai, null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group col-12 ">
                 <label @error('keterangan') class="text-danger" @enderror>Keterangan @error('keterangan') | {{ $message }}@enderror</label>

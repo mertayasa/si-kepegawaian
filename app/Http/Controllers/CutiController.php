@@ -28,7 +28,7 @@ class CutiController extends Controller
         if(userRole() == 'admin'){
             $cuti = $this->cutiRepo->getAllData();
         }else{
-            $cuti = $this->cutiRepo->getAllData()->where('pegawai_id', Auth::user()->pegawai->id);
+            $cuti = $this->cutiRepo->getAllData()->where('pegawai_nip', Auth::user()->pegawai->nip);
         }
 
         return NewCutiDatatable::set($cuti);
@@ -41,7 +41,7 @@ class CutiController extends Controller
     public function store(CutiRequest $request){
         try{
             $data = $request->all();
-            $data['pegawai_id'] = Auth::user()->pegawai->id;
+            $data['pegawai_nip'] = Auth::user()->pegawai->nip;
 
             $this->cutiRepo->store($data);
         }catch(Exception $e){
@@ -63,7 +63,7 @@ class CutiController extends Controller
     public function update(CutiRequest $request, Cuti $cuti){
         try{
             $data = $request->all();
-            $data['pegawai_id'] = Auth::user()->pegawai->id;
+            $data['pegawai_nip'] = Auth::user()->pegawai->nip;
 
             $cuti->update($data);
         }catch(Exception $e){

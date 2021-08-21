@@ -14,9 +14,9 @@
                     <div class="card-body">
                         @include('cuti.form')
                         <div class="text-right">
-                            <button class="btn btn-primary mr-1" type="submit">Simpan</button>
+                            <button class="btn btn-danger mr-1" type="submit">Simpan</button>
                             <button class="btn btn-secondary mr-1" type="reset">Reset</button>
-                            <a href="{{ url('cuti')}}" class="btn btn-danger mr-1">Kembali</a>
+                            <a href="{{ url('cuti')}}" class="btn btn-primary mr-1">Kembali</a>
                         </div>
                     </div>
                 </div>

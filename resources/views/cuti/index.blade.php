@@ -14,7 +14,7 @@
                     @if (userRole() == 'pegawai')
                         <div class="row">
                             <div class="col-6 align-items-start">
-                                <button class="btn btn-primary mb-3 mr-2" onclick="location.href='{{route('cuti.create')}}'">Tambah Data</button>
+                                <button class="btn btn-danger mb-3 mr-2" onclick="location.href='{{route('cuti.create')}}'">Tambah Data</button>
                             </div>
                             <div class="col-6 d-flex">
                             </div>

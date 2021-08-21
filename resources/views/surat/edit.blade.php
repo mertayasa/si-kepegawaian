@@ -14,9 +14,9 @@
                     <div class="card-body">
                         @include('surat.form')
                         <div class="text-right">
-                            <button class="btn btn-primary mr-1" type="submit">Update</button>
+                            <button class="btn btn-danger mr-1" type="submit">Update</button>
                             <button class="btn btn-secondary mr-1" type="reset">Reset</button>
-                            <a href="{{ url('surat')}}" class="btn btn-danger mr-1">Kembali</a>
+                            <a href="{{ url('surat')}}" class="btn btn-primary mr-1">Kembali</a>
                         </div>
                     </div>
                 </div>

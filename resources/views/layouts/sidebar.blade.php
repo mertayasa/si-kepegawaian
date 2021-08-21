@@ -1,4 +1,4 @@
-<ul class="navbar-nav sidebar sidebar-dark bg-primary accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark bg-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">

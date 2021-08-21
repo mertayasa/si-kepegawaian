@@ -31,7 +31,7 @@ class SuratController extends Controller{
     }
 
     public function create(){
-        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'id');
+        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'nip');
         return view('surat.create', compact('pegawai'));
     }
 
@@ -61,7 +61,7 @@ class SuratController extends Controller{
     }
 
     public function edit(Surat $surat){
-        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'id');
+        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'nip');
         return view('surat.edit', compact('surat', 'pegawai'));
     }
 

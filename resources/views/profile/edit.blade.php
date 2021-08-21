@@ -18,9 +18,9 @@
                             @include('profile.pegawai')
                         @endif
                         <div class="text-right">
-                            <button class="btn btn-primary mr-1" type="submit">Update</button>
+                            <button class="btn btn-danger mr-1" type="submit">Update</button>
                             <button class="btn btn-secondary mr-1" type="reset">Reset</button>
-                            <a href="{{ url('dashboard')}}" class="btn btn-danger mr-1">Kembali</a>
+                            <a href="{{ url('dashboard')}}" class="btn btn-primary mr-1">Kembali</a>
                         </div>
                     </div>
                 </div>

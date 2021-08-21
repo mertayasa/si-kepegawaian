@@ -1,7 +1,7 @@
-    {{-- {!! Form::hidden('pegawai_id', Auth::user()->pegawai->id, []) !!}
+    {{-- {!! Form::hidden('pegawai_nip', Auth::user()->pegawai->nip, []) !!}
 
     <div class="form-group">
-        <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
+        <label @error('pegawai_nip') class="text-danger" @enderror>Nama Pegawai @error('pegawai_nip') | {{ $message }}@enderror</label>
         {!! Form::text('pegawai_name', Auth::user()->, [$options]) !!}
     </div> --}}
 

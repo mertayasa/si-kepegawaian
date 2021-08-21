@@ -12,7 +12,7 @@ class SanksiRequest extends FormRequest{
 
     public function rules(){
         $rules = [
-            'pegawai_id' => 'required|exists:pegawai,id',
+            'pegawai_nip' => 'required|exists:pegawai,nip',
             'keterangan' => 'required',
             'surat_sanksi' => 'required'
         ];

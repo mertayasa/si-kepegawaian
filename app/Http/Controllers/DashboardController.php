@@ -46,11 +46,11 @@ class DashboardController extends Controller
     }
 
     public function getDataPegawai(){
-        $sanksi_count = Sanksi::where('pegawai_id', Auth::user()->pegawai->id)->count();
-        $sakit_count = Sakit::where('pegawai_id', Auth::user()->pegawai->id)->count();
+        $sanksi_count = Sanksi::where('pegawai_nip', Auth::user()->pegawai->nip)->count();
+        $sakit_count = Sakit::where('pegawai_nip', Auth::user()->pegawai->nip)->count();
         $cuti_count = 0;
 
-        $cuti = Cuti::where('status', 1)->where('pegawai_id', Auth::user()->pegawai->id)->get();
+        $cuti = Cuti::where('status', 1)->where('pegawai_nip', Auth::user()->pegawai->nip)->get();
 
         foreach($cuti as $cuti){
             $cuti_count = $cuti_count + $cuti->total_hari;

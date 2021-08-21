@@ -34,7 +34,7 @@ class GajiController extends Controller
     public function store(Request $request){
         // try{
         //     $data = $request->all();
-        //     $data['pegawai_id'] = Auth::user()->pegawai->id;
+        //     $data['pegawai_nip'] = Auth::user()->pegawai->nip;
 
         //     $this->gajiRepo->store($data);
         // }catch(Exception $e){

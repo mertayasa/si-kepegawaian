@@ -15,14 +15,14 @@ class CreateSanksisTable extends Migration
     {
         Schema::create('sanksi', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('pegawai_id')->nullable();
+            $table->string('pegawai_nip')->nullable();
             $table->text('golongan');
             // $table->text('jabatan');
             $table->text('keterangan');
             $table->text('surat_sanksi');
             $table->timestamps();
 
-            $table->foreign('pegawai_id')->references('id')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('pegawai_nip')->references('nip')->on('pegawai')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

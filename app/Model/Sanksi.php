@@ -9,7 +9,7 @@ class Sanksi extends Model
     public $table = 'sanksi';
 
     protected $fillable = [
-        'pegawai_id',
+        'pegawai_nip',
         'golongan',
         'jabatan',
         'keterangan',
@@ -17,6 +17,6 @@ class Sanksi extends Model
     ];
 
     public function pegawai(){
-        return $this->belongsTo('App\Model\Pegawai', 'pegawai_id');
+        return $this->belongsTo('App\Model\Pegawai', 'pegawai_nip');
     }
 }

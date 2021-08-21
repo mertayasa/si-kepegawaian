@@ -13,7 +13,7 @@
                 <div class="col-12 p-0 mb-3">
                     <div class="row">
                         <div class="col-6 align-items-start">
-                            <button class="btn btn-primary mb-3 mr-2" onclick="location.href='{{route('pegawai.tambah')}}'">Tambah Pegawai</button>
+                            <button class="btn btn-danger mb-3 mr-2" onclick="location.href='{{route('pegawai.tambah')}}'">Tambah Pegawai</button>
                         </div>
                         <div class="col-6 d-flex">
                         </div>

@@ -53,7 +53,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="{{ route('login') }}" class="btn btn-primary btn-user btn-block">
+                                        <a href="{{ route('login') }}" class="btn btn-danger btn-user btn-block">
                                             Login
                                         </a>
                                         <hr>

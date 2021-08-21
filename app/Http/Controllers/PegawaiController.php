@@ -37,12 +37,21 @@ class PegawaiController extends Controller{
 
     // method untuk edit
     public function edit(Pegawai $pegawai){
+        // dd($pegawai);
         return view('pegawai.edit',['pegawai' => $pegawai]);
     }
 
     //metode update
     public function update(PegawaiRequest $request, Pegawai $pegawai){
         try{
+            $check_pegawai = Pegawai::where('nip', $request->nip)->get();
+
+            if($check_pegawai->count() > 0 && $check_pegawai[0]->nip != $pegawai->nip){
+                return redirect()->back()->withInput()->with('error', 'NIP Sudah Digunakan !');
+            }
+
+            // dd('asdadas');
+
             $data = $request->all();
             $base_64_foto = json_decode($request['foto'], true);
             $upload_image = uploadFile($base_64_foto);
@@ -80,6 +89,7 @@ class PegawaiController extends Controller{
         
         $user_id = 0;
         try{
+
             $data = $request->all();
             $base_64_foto = json_decode($request['foto'], true);
             $upload_image = uploadFile($base_64_foto);
@@ -91,15 +101,16 @@ class PegawaiController extends Controller{
             $data['foto'] = $upload_image;
             $data['level'] = 1;
             $data['password'] = bcrypt($data['password']);
-            // $data['jabatan'] = getJabatan($data['golongan']);
     
             $stored_user = $this->userRepo->store($data);
             $user_id = $stored_user->id;
             $stored_user->pegawai()->create($data);
 
         }catch(Exception $e){
-            User::find($user_id)->delete();
             Log::info($e->getMessage());
+            if($user_id != 0){
+                User::find($user_id)->delete();
+            }
             return redirect()->back()->withInput()->with('error', 'Gagal menambahkan pegawai');
         }
 

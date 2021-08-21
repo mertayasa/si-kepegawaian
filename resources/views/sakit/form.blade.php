@@ -1,7 +1,7 @@
     <div class="row">
         <div class="form-group col-12 col-md-6">
-            <label @error('pegawai_id') class="text-danger" @enderror>Nama Pegawai @error('pegawai_id') | {{ $message }}@enderror</label>
-            {!! Form::text('pegawai_id', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
+            <label @error('pegawai_nip') class="text-danger" @enderror>Nama Pegawai @error('pegawai_nip') | {{ $message }}@enderror</label>
+            {!! Form::text('pegawai_nip', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
         </div>
     
         <div class="form-group col-12 col-md-6">

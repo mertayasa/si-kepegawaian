@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-6 align-items-start">
                             {{-- @if (Auth::user()->level == 1) --}}
-                                <button class="btn btn-primary mb-3 mr-2" onclick="location.href='{{route('surat.create')}}'">Tambah Surat</button>
+                                <button class="btn btn-danger mb-3 mr-2" onclick="location.href='{{route('surat.create')}}'">Tambah Surat</button>
                             {{-- @endif --}}
                         </div>
                         <div class="col-6 d-flex">

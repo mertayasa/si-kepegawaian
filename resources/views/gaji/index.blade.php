@@ -39,7 +39,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary btn-update" onclick="submitData()">Update</button>
+                <button type="button" class="btn btn-danger btn-update" onclick="submitData()">Update</button>
             </div>
             </div>
         </div>
@@ -52,13 +52,13 @@
             const btnUpdate = document.getElementsByClassName('btn-update')[0]
             
             if(parseInt(gaji) < 1000000){
-                btnUpdate.classList.remove('btn-primary')
+                btnUpdate.classList.remove('btn-danger')
                 btnUpdate.classList.add('btn-secondary')
                 btnUpdate.setAttribute('disabled', true)
                 return warningSpan.classList.remove('d-none')
             }
 
-            btnUpdate.classList.add('btn-primary')
+            btnUpdate.classList.add('btn-danger')
             btnUpdate.classList.remove('btn-secondary')
             btnUpdate.removeAttribute('disabled')
             return warningSpan.classList.add('d-none')

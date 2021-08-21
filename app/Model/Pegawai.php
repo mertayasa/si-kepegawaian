@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pegawai extends Model{
     public $table = 'pegawai';
 
+    protected $primaryKey = 'nip';
+    public $incrementing = false;
+
     protected $fillable = [
         'user_id',
         'alamat',

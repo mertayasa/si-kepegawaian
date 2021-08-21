@@ -89,7 +89,7 @@
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
           <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
+            <button type="submit" class="btn btn-danger">Logout</button>
           </form>
         </div>
       </div>

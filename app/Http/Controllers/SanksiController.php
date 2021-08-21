@@ -30,14 +30,14 @@ class SanksiController extends Controller{
         if(userRole() == 'admin'){
             $sanksi = $this->sanksiRepo->getAllData();
         }else{
-            $sanksi = $this->sanksiRepo->getAllData()->where('pegawai_id', Auth::user()->pegawai->id);
+            $sanksi = $this->sanksiRepo->getAllData()->where('pegawai_nip', Auth::user()->pegawai->nip);
         }
 
         return SanksiDatatable::set($sanksi);
     }
 
     public function create(){
-        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'id');
+        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'nip');
         return view('sanksi.create', compact('pegawai'));
     }
 
@@ -51,7 +51,7 @@ class SanksiController extends Controller{
                 return redirect()->back()->withInput()->with('error', 'Gagal mengupload gambar!');
             }
 
-            $pegawai = Pegawai::find($data['pegawai_id']);
+            $pegawai = Pegawai::find($data['pegawai_nip']);
             $data['surat_sanksi'] = $upload_image;
             $data['golongan'] = $pegawai->gaji->golongan;
             // $data['golongan'] = $pegawai->golongan;
@@ -72,7 +72,7 @@ class SanksiController extends Controller{
     }
 
     public function edit(Sanksi $sanksi){
-        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'id');
+        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'nip');
         return view('sanksi.edit', compact('sanksi', 'pegawai'));
     }
 
@@ -87,7 +87,7 @@ class SanksiController extends Controller{
             }
             
 
-            $pegawai = Pegawai::find($data['pegawai_id']);
+            $pegawai = Pegawai::find($data['pegawai_nip']);
             $data['surat_sanksi'] = $upload_image;
             $data['golongan'] = $pegawai->gaji->golongan;
             // $data['jabatan'] = '-';

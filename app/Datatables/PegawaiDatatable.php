@@ -19,9 +19,9 @@ class PegawaiDatatable{
             //     return getJabatan($pegawai->golongan);
             // })
             ->addColumn('action', function($pegawai){
-                $deleteUrl = "'".route('pegawai.hapus', $pegawai->id)."', 'pegawaiDatatable'";
+                $deleteUrl = "'".route('pegawai.hapus', $pegawai->nip)."', 'pegawaiDatatable'";
                 return  '<div class="btn-group">'.
-                    '<a href="'.route('pegawai.edit',$pegawai->id).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
+                    '<a href="'.route('pegawai.edit',$pegawai->nip).'" class="btn btn-warning" ><i class="menu-icon fa fa-pencil-alt"></i></a>'.
                     '<a href="#" onclick="deleteModel('.$deleteUrl.',)" class="btn btn-danger" ><i class="menu-icon fa fa-trash"></i></a>'.
                 '</div>';
             })->addIndexColumn()->rawColumns(['action', 'foto'])->make(true);

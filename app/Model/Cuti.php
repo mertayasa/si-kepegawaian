@@ -10,7 +10,7 @@ class Cuti extends Model{
     public $table = 'cuti';
 
     protected $fillable = [
-        'pegawai_id',
+        'pegawai_nip',
         'dari_tgl',
         'sampai_tgl',
         'alasan',
@@ -28,6 +28,6 @@ class Cuti extends Model{
     }
 
     public function pegawai(){
-        return $this->belongsTo('App\Model\Pegawai', 'pegawai_id');
+        return $this->belongsTo('App\Model\Pegawai', 'pegawai_nip');
     }
 }

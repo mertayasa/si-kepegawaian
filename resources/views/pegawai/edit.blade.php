@@ -7,16 +7,16 @@
     <p><strong><a href="{{route('dashboard')}}" class='text-decoration-none text-gray-900'>Dashboard</a></strong> / Data pegawai / Edit pegawai</p>
     @include('layouts.flash')
     
-    {!! Form::model($pegawai, ['route' => ['pegawai.update', $pegawai->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::model($pegawai, ['route' => ['pegawai.update', $pegawai->nip], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
         <div class="row">
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         @include('pegawai.form')
                         <div class="text-right">
-                            <button class="btn btn-primary mr-1" type="submit">Update</button>
+                            <button class="btn btn-danger mr-1" type="submit">Update</button>
                             <button class="btn btn-secondary mr-1" type="reset">Reset</button>
-                            <a href="{{ url('pegawai')}}" class="btn btn-danger mr-1">Kembali</a>
+                            <a href="{{ url('pegawai')}}" class="btn btn-primary mr-1">Kembali</a>
                         </div>
                     </div>
                 </div>

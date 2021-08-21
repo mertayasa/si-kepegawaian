@@ -29,14 +29,14 @@ class SakitController extends Controller{
         if(userRole() == 'admin'){
             $sakit = $this->sakitRepo->getAllData();
         }else{
-            $sakit = $this->sakitRepo->getAllData()->where('pegawai_id', Auth::user()->pegawai->id);
+            $sakit = $this->sakitRepo->getAllData()->where('pegawai_nip', Auth::user()->pegawai->nip);
         }
 
         return SakitDatatable::set($sakit);
     }
 
     public function create(){
-        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'id');
+        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'nip');
         return view('sakit.create', compact('pegawai'));
     }
 
@@ -51,7 +51,7 @@ class SakitController extends Controller{
             }
 
             $data['surat_ket'] = $upload_image;
-            $data['pegawai_id'] = Auth::user()->pegawai->id;
+            $data['pegawai_nip'] = Auth::user()->pegawai->nip;
 
             // dd($data);
 
@@ -69,7 +69,7 @@ class SakitController extends Controller{
     }
 
     public function edit(Sakit $sakit){
-        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'id');
+        $pegawai = $this->userRepo->getAllPegawai()->pluck('nama', 'nip');
         return view('sakit.edit', compact('sakit', 'pegawai'));
     }
 
@@ -85,7 +85,7 @@ class SakitController extends Controller{
             }
 
             $data['surat_ket'] = $upload_image;
-            $data['pegawai_id'] = $sakit->pegawai_id;
+            $data['pegawai_nip'] = $sakit->pegawai_nip;
 
             $sakit->update($data);
         }catch(Exception $e){

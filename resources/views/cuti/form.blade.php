@@ -2,8 +2,8 @@
         <div class="col-12 col-md-6">
             <div class="form-group col-12">
                 <label>Nama Pegawai</label>
-                {!! Form::text('pegawai_id', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
-                <small class="text-danger">@error('pegawai_id') {{ $message }}@enderror</small>
+                {!! Form::text('pegawai_nip', Auth::user()->nama, ['class' => 'form-control', 'readonly' => true]) !!}
+                <small class="text-danger">@error('pegawai_nip') {{ $message }}@enderror</small>
             </div>
         
             <div class="form-group col-12">

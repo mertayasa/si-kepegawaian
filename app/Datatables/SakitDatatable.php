@@ -9,6 +9,9 @@ class SakitDatatable{
 
     static public function set($sakit){
         return Datatables::of($sakit)
+            ->editColumn('tanggal', function($sakit){
+                return Carbon::parse($sakit->tanggal)->isoFormat('LL');
+            })
             ->editColumn('surat_ket', function($sakit){
                 return '<img src="'.asset('images/'.$sakit->surat_ket).'" alt="" width="100px">';
             })

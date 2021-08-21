@@ -12,7 +12,7 @@
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout</a>
+                    <button type="submit" class="btn btn-danger"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout</a>
                 </form>
             </div>
         </div>
